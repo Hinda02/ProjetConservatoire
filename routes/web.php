@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Employe;
+use App\Models\Personne;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return "Hello World";
+    return view("welcome");
+});
+
+Route::get('/', function () {
+    //return view("welcome");
+    $user = Personne::find(1);
+    var_dump($user->NOM);
 });
