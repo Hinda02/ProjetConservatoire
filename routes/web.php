@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/', function () {
-    return "j'ai enfin reussi !!!!!!!";
+    return "j'ai enfin reussi ;)" ;
+});
