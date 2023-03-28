@@ -18,5 +18,5 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', function () {
-    return views("login") ;
+    return view("login") ;
 });
