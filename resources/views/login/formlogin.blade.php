@@ -31,5 +31,7 @@
             </div>
         </div>
     </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js%22%3E</script>
+    <script nomodule src=>
 </body>
 </html>
