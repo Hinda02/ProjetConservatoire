@@ -39,7 +39,7 @@ class Eleve
 		$this->bourse = $bourse;
 		return $this;
 	}
-    public static function Affichereleve(){
+    public static function AfficherEleve(){
 
         $req = MonPdo::getInstance()->prepare("select * from eleve "); //select IDELEVE from eleve 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
