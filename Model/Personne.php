@@ -110,7 +110,7 @@ class Personne
 
 	public static function AfficherPersonne(){
 
-        $req = MonPdo::getInstance()->prepare("select * from personne ");// select IDPERSONNE from personne 
+        $req = MonPdo::getInstance()->prepare("select * from personne "); // select ID from personne 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'personne');
        
         $req->execute();
