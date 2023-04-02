@@ -121,7 +121,7 @@ class Personne
 
 	public static function getById($id){
 
-        $req = MonPdo::getInstance()->prepare("select * from personne where id = :id");
+        $req = MonPdo::getInstance()->prepare("select * from personne where id = $id");
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'personne');
         $req->bindParam('id', $id);
         $req->execute();
