@@ -2,6 +2,7 @@
     include("View/header.php");
     include("Model/monPdo.php");
     include("Model/Employe.php");
+    include("Model/Seance.php");
 
     if(empty($_GET["uc"])){
         $uc = "authentification";
@@ -14,8 +15,8 @@
             include("View/formAuthentification.php");
             break;
     
-        case "bonbons":
-            //include("controller/bonbonsController.php");
+        case "cours":
+            include("Controller/SeanceController.php");
             break;
     
         case "employe":
