@@ -52,4 +52,34 @@ class Eleve
 
         return $lesResultats;
     }
+    
+    public static function getBySupprimerEleve() {
+
+        $req = MonPdo::getInstance()->prepare("delete IDELEVE * from eleve "); 
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+       
+        $req->execute();
+        $lesResultats = $req->fetchAll();
+        $nb_lignes = count($lesResultats);
+
+    
+
+        return $lesResultats;
+
+    }
+   
+    public static function getByAddEleve() {
+
+        $req = MonPdo::getInstance()->prepare("insert into IDELEVE, BOURSE * from eleve "); 
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+       
+        $req->execute();
+        $lesResultats = $req->fetchAll();
+        $nb_lignes = count($lesResultats);
+
+    
+
+        return $lesResultats;
+
+    }
 }
