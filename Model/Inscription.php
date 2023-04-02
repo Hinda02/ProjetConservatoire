@@ -73,7 +73,7 @@ class Inscription
 		$this->dateInscription = $dateInscription;
 		return $this;
 	}
-    public static function AfficherInscription(){
+    public static function getByAfficherInscription(){
 
         $req = MonPdo::getInstance()->prepare("select * from inscription "); //select IDPROF/IDELEVE from inscription 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'inscription');
@@ -85,5 +85,19 @@ class Inscription
     
 
         return $lesResultats;
+    }
+    public static function getBySupprimerInscription() {
+
+        $req = MonPdo::getInstance()->prepare("insert into eleve value (IDELEVE,BOURSE) "); 
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+       
+        $req->execute();
+        $lesResultats = $req->fetchAll();
+        $nb_lignes = count($lesResultats);
+
+    
+
+        return $lesResultats;
+
     }
 }
