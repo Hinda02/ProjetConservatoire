@@ -55,7 +55,7 @@ class Prof
 		$this->salaire = $salaire;
 		return $this;
 	}
-    public static function Afficherprof(){
+    public static function AfficherProf(){
 
         $req = MonPdo::getInstance()->prepare("select * from prof ");// select IDPROF from prof /// select INSTRUMENT from prof 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
