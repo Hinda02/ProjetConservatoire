@@ -86,9 +86,9 @@ class Inscription
 
         return $lesResultats;
     }
-    public static function getBySupprimerInscription() {
+    public static function supprimerInscription() {
 
-        $req = MonPdo::getInstance()->prepare("insert into eleve value (IDELEVE,BOURSE) "); 
+        $req = MonPdo::getInstance()->prepare(" "); 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
        
         $req->execute();
