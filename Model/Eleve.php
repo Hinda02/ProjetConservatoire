@@ -39,16 +39,13 @@ class Eleve
 		$this->bourse = $bourse;
 		return $this;
 	}
-    public static function AfficherEleve(){
+    public static function getAll(){
 
-        $req = MonPdo::getInstance()->prepare("select * from eleve "); //select IDELEVE from eleve 
+        $req = MonPdo::getInstance()->prepare("select * from eleve;"); //select IDELEVE from eleve 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
        
         $req->execute();
         $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-
-    
 
         return $lesResultats;
     }

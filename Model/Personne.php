@@ -108,18 +108,25 @@ class Personne
 		return $this;
 	}
 
-	public static function AfficherPersonne(){
+	public static function getAll(){
 
-        $req = MonPdo::getInstance()->prepare("select * from personne "); // select ID from personne 
+        $req = MonPdo::getInstance()->prepare("select * from personne;"); // select ID from personne 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'personne');
        
         $req->execute();
         $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-
-    
 
         return $lesResultats;
+    }
+
+	public static function getById($id){
+
+        $req = MonPdo::getInstance()->prepare("select * from personne where id = :id");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'personne');
+        $req->bindParam('id', $id);
+        $req->execute();
+        $leResultat = $req->fetch();
+        return $leResultat;
     }
 
 	

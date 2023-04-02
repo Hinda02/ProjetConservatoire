@@ -6,6 +6,12 @@ $action = $_GET["action"];
 switch($action){
     case "liste":
         $lesCours = Seance::getAll();
+        
+        foreach($lesCours as $cours){
+            $lesPersonnes[$cours->IDPROF] = Personne::getById($cours->IDPROF);
+            $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
+        }
+
         include("View/cListeCours.php");
         break;
 
