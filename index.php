@@ -3,6 +3,8 @@
     include("Model/monPdo.php");
     include("Model/Employe.php");
     include("Model/Seance.php");
+    include("Model/Personne.php");
+    include("Model/Prof.php");
 
     if(empty($_GET["uc"])){
         $uc = "authentification";

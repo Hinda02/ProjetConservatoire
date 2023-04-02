@@ -55,19 +55,25 @@ class Prof
 		$this->salaire = $salaire;
 		return $this;
 	}
-    public static function AfficherProf(){
+    public static function getAll(){
 
-        $req = MonPdo::getInstance()->prepare("select * from prof ");// select IDPROF from prof /// select INSTRUMENT from prof 
+        $req = MonPdo::getInstance()->prepare("select * from prof;");// select IDPROF from prof /// select INSTRUMENT from prof 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
        
         $req->execute();
         $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-
-    
 
         return $lesResultats;
     }
 
-    
+	public static function getById($id){
+
+        $req = MonPdo::getInstance()->prepare("select * from prof where idprof = :id");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
+        $req->bindParam('id', $id);
+        $req->execute();
+        $leResultat = $req->fetch();
+        return $leResultat;
     }
+    
+}
