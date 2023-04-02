@@ -18,7 +18,8 @@ switch($action){
         $result = Employe::verifier($login, $mdp);
         if($result){
             $_SESSION["autorisation"] = "OK";
-            include("View/navbar.php");
+            $_GET["action"] = "liste";
+            include("Controller/SeanceController.php");
         }else{
             include("View/formAthentification.php");
         }
@@ -30,3 +31,4 @@ switch($action){
 
 
 }
+?>
