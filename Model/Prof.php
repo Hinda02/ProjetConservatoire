@@ -57,7 +57,7 @@ class Prof
 	}
     public static function Afficherprof(){
 
-        $req = MonPdo::getInstance()->prepare("select * from prof ");
+        $req = MonPdo::getInstance()->prepare("select * from prof ");// select IDPROF from prof /// select INSTRUMENT from prof 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
        
         $req->execute();
