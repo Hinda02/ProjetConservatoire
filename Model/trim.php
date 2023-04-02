@@ -42,11 +42,11 @@ class Trim
     public static function AfficherTrim(){
 
         $req = MonPdo::getInstance()->prepare("select * from trim ");
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'trim');
        
         $req->execute();
         $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
+        
 
     
 

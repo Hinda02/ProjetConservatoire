@@ -113,7 +113,7 @@ class Payer
 		$this->paye = $paye;
 		return $this;
 	}
-    public static function AfficherPayer(){
+    public static function GetByPayer(){
 
         $req = MonPdo::getInstance()->prepare("select * from payer "); //select IDPROF/IDELEVE from payer 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'payer');
