@@ -41,8 +41,8 @@ class Eleve
 	}
     public static function getByAfficherEleve(){
 
-        $req = MonPdo::getInstance()->prepare("select * from eleve "); //select IDELEVE from eleve 
-        //$req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+        $req = MonPdo::getInstance()->prepare("select * from eleve "); 
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
        
         $req->execute();
         $lesResultats = $req->fetchAll();
@@ -53,9 +53,9 @@ class Eleve
         return $lesResultats;
     }
     
-    public static function getBySupprimerEleve() {
+    public  static function getBySupprimerEleve (string $id ) {
 
-        $req = MonPdo::getInstance()->prepare("delete IDELEVE * from eleve "); 
+        $req = MonPdo::getInstance()->prepare("delete from IDELEVE where id = $id"); 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
        
         $req->execute();
@@ -70,7 +70,7 @@ class Eleve
    
     public static function getByAddEleve() {
 
-        $req = MonPdo::getInstance()->prepare("insert into IDELEVE, BOURSE * from eleve "); 
+        $req = MonPdo::getInstance()->prepare("insert into eleve value (IDELEVE,BOURSE) "); 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
        
         $req->execute();
