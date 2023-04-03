@@ -17,16 +17,16 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Cours
+                    Adhérent
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Date
+                    Téléphone
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Niveau
+                    Séance
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Capacité
+                    Date Inscription
                 </th>
                 <th scope="col" class="px-6 py-3">
                 </th>
@@ -37,7 +37,7 @@
         <tbody>
         <?php
 
-            foreach ($lesCours as $cours) {
+            foreach ($lesInscriptions as $inscription) {
 
                 echo '<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
@@ -45,18 +45,18 @@
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"/>
                             </svg>
                                 <div class="pl-3">
-                                    <div class="text-base font-semibold">'.$lesProfs[$cours->IDPROF]->INSTRUMENT.'</div>
-                                    <div class="font-normal text-gray-500">Professeur: '.$lesProfs[$cours->IDPROF]->NOM.' '.$lesProfs[$cours->IDPROF]->PRENOM.'</div>
+                                    <div class="text-base font-semibold">'.$lesEleves[$inscription->IDELEVE]->NOM.' '.$lesEleves[$inscription->IDELEVE]->PRENOM.'</div>
+                                    <div class="font-normal text-gray-500">'.$lesEleves[$inscription->IDELEVE]->MAIL.'</div>
                                 </div>  
                             </th>
                             <td class="px-6 py-4">
-                                '.$cours->JOUR.' '.$cours->TRANCHE.'
+                                '.$lesEleves[$inscription->IDELEVE]->TEL.'
                             </td>
                             <td class="px-6 py-4">
-                                '.$cours->NIVEAU.'
+                                '.$inscription->NUMSEANCE.'
                             </td>
                             <td class="px-6 py-4">
-                                '.$cours->CAPACITE.'
+                                '.$inscription->DATEINSCRIPTION.'
                             </td>
                             <td class="px-6 py-4">
                                 <div class="mt-4 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-14 flex items-center sm:space-x-6 sm:pl-0 sm:mt-0">
@@ -72,7 +72,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="mt-4 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-14 flex items-center sm:space-x-6 sm:pl-0 sm:mt-0">
-                                    <a class="flex items-center bg-sky-600 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="index.php?uc=inscriptions&action=liste&idprof='. $cours->IDPROF .'&nums='. $cours->NUMSEANCE .'">
+                                    <a class="flex items-center bg-sky-600 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z">
                                                     </path><circle cx="12" cy="12" r="3"></circle>
