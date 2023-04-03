@@ -46,7 +46,7 @@
                             </svg>
                                 <div class="pl-3">
                                     <div class="text-base font-semibold">'.$lesProfs[$cours->IDPROF]->INSTRUMENT.'</div>
-                                    <div class="font-normal text-gray-500">Professeur: '.$lesPersonnes[$cours->IDPROF]->NOM.' '.$lesPersonnes[$cours->IDPROF]->PRENOM.'</div>
+                                    <div class="font-normal text-gray-500">Professeur: '.$lesProfs[$cours->IDPROF]->NOM.' '.$lesProfs[$cours->IDPROF]->PRENOM.'</div>
                                 </div>  
                             </th>
                             <td class="px-6 py-4">

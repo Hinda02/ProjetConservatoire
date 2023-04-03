@@ -62,15 +62,27 @@ class Eleve extends Personne
    
     public static function addEleve(Eleve $eleve) {
         
+		parent::addPersonne($eleve);
+		$id = self::getIdPers($eleve->getMail());
+
 		$req = MonPdo::getInstance()->prepare("insert into eleve(idEleve, bourse) values(:idEleve, :bourse)");
-        $idEleve = $eleve->getIdEleve();
         $bourse = $eleve->getBourse();
         
-        $req->bindParam('idEleve', $idEleve);
+        $req->bindParam('idEleve', $id);
         $req->bindParam('bourse', $bourse);
         
         $nb = $req->execute();
         return $nb;
+    }
+
+	public static function getIdPers($mail){
+
+        $req = MonPdo::getInstance()->prepare("select * from personne where MAIL = :mail ;");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
+        $req->bindParam('mail', $mail);
+        $req->execute();
+        $leResultat = $req->fetch();
+        return $leResultat[0];
     }
 
 	

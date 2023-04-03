@@ -56,9 +56,10 @@ class Prof extends Personne
 		$this->salaire = $salaire;
 		return $this;
 	}
+
     public static function getAll(){
 
-        $req = MonPdo::getInstance()->prepare("select * from prof;");// select IDPROF from prof /// select INSTRUMENT from prof 
+        $req = MonPdo::getInstance()->prepare("select * from personne inner join prof on personne.ID = prof.IDPROF ;");
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
        
         $req->execute();
@@ -69,12 +70,22 @@ class Prof extends Personne
 
 	public static function getById($id){
 
-        $req = MonPdo::getInstance()->prepare("select * from prof where idprof = :id");
+        $req = MonPdo::getInstance()->prepare("select * from personne inner join prof on personne.ID = prof.IDPROF where IDPROF = :id ;");
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
         $req->bindParam('id', $id);
         $req->execute();
         $leResultat = $req->fetch();
         return $leResultat;
+    }
+
+	public static function getIdPers($mail){
+
+        $req = MonPdo::getInstance()->prepare("select * from personne where MAIL = :mail ;");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
+        $req->bindParam('mail', $mail);
+        $req->execute();
+        $leResultat = $req->fetch();
+        return $leResultat[0];
     }
     
 

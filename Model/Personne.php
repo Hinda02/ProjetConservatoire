@@ -121,12 +121,28 @@ class Personne
 
 	public static function getById($id){
 
-        $req = MonPdo::getInstance()->prepare("select * from personne where id = $id");
+        $req = MonPdo::getInstance()->prepare("select * from personne where id = :id");
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'personne');
         $req->bindParam('id', $id);
         $req->execute();
         $leResultat = $req->fetch();
         return $leResultat;
+    }
+
+	public static function addPersonne(Personne $personne){
+        $req = MonPdo::getInstance()->prepare("Insert into personne (nom, prenom, tel, mail, adresse) values(:nom, :prenom, :tel, :mail, :adresse);");
+        $nom = $personne->getNom();
+        $prenom = $personne->getPrenom();
+        $tel = $personne->getTel();
+		$mail = $personne->getMail();
+		$adresse = $personne->getAdresse();
+        $req->bindParam('nom', $nom);
+        $req->bindParam('prenom', $prenom);
+        $req->bindParam('tel', $tel);
+		$req->bindParam('mail', $mail);
+		$req->bindParam('adresse', $adresse);
+        $nb = $req->execute();
+        return $nb; 
     }
 
 	
