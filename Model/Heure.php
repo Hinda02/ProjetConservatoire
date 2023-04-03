@@ -20,7 +20,7 @@ class Heure {
 		$this->tranche = $tranche;
 		return $this;
 	}
-    public static function AfficherHeure(){
+    public static function selectHeure(){
 
         $req = MonPdo::getInstance()->prepare("select * from heure"); 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'heure');
