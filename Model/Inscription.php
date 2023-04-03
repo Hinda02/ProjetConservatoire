@@ -102,7 +102,7 @@ class Inscription
 
     }
 
-    public static function addInscription(  ) { // A FAIREEEEE
+    public static function addInscription(  ) { 
 
         $req = MonPdo::getInstance()->prepare(" insert into inscription values ("""" "); 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');

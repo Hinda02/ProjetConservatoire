@@ -115,7 +115,7 @@ class Payer
 	}
     public static function GetByPayer(){
 
-        $req = MonPdo::getInstance()->prepare("select * from payer "); //select IDPROF/IDELEVE from payer 
+        $req = MonPdo::getInstance()->prepare("select * from payer "); 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'payer');
        
         $req->execute();

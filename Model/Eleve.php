@@ -43,7 +43,7 @@ class Eleve extends Personne
 
     public static function getAll(){
 
-        $req = MonPdo::getInstance()->prepare("select * from eleve;"); //select IDELEVE from eleve 
+        $req = MonPdo::getInstance()->prepare("select idEleve, bourse from eleve inner join personne Eleve.idEleve = Personne.idEleve;"); //select IDELEVE from eleve 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
        
         $req->execute();
