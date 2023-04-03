@@ -86,7 +86,7 @@ class Inscription
 
         return $lesResultats;
     }
-    public static function supprimerInscription( string $idProf ) {
+    public static function deleteInscription( string $idProf ) {
 
         $req = MonPdo::getInstance()->prepare(" delete from inscription where IDPROF = $idProf "); 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
