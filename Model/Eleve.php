@@ -52,7 +52,7 @@ class Eleve extends Personne
         return $lesResultats;
     }
     
-    public  static function supprimerEleve (string $idEleve ) {
+    public  static function deleteEleve (string $idEleve ) {
 
         $req = MonPdo::getInstance()->prepare("delete from eleve where idEleve = :idEleve;"); 
       
