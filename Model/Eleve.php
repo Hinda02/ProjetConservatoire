@@ -1,28 +1,29 @@
 <?php
 
-class Eleve
+class Eleve extends Personne
 {
 
-    private $id;
+    private $idEleve;
     private $bourse;
     
     
-
-	/**
+    /**
 	 * @return mixed
 	 */
-	public function getId() {
-		return $this->id;
+	public function getIdEleve() {
+		return $this->idEleve;
 	}
 
+
 	/**
-	 * @param mixed $id 
+	 * @param mixed $idEleve 
 	 * @return self
 	 */
-	public function setId($id): self {
-		$this->id = $id;
+	public function setIdEleve($idEleve): self {
+		$this->idEleve = $idEleve;
 		return $this;
 	}
+	
 
 	/**
 	 * @return mixed
@@ -51,33 +52,26 @@ class Eleve
         return $lesResultats;
     }
     
-    public  static function supprimerEleve (string $id ) {
+    public  static function supprimerEleve (string $idEleve ) {
 
-        $req = MonPdo::getInstance()->prepare("delete from IDELEVE where id = $id"); 
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
-       
+        $req = MonPdo::getInstance()->prepare("delete from eleve where idEleve = :idEleve;"); 
+      
         $req->execute();
-        $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-
-    
-
-        return $lesResultats;
 
     }
    
-    public static function addEleve() {
-
-        $req = MonPdo::getInstance()->prepare("insert into eleve values (IDELEVE,BOURSE) "); 
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
-       
-        $req->execute();
-        $lesResultats = $req->fetchAll();
+    public static function addEleve(Eleve $eleve) {
         
-
-    
-
-        return $lesResultats;
-
+		$req = MonPdo::getInstance()->prepare("insert into eleve(idEleve, bourse) values(:idEleve, :bourse)");
+        $idEleve = $eleve->getIdEleve();
+        $bourse = $eleve->getBourse();
+        
+        $req->bindParam('idEleve', $idEleve);
+        $req->bindParam('bourse', $bourse);
+        
+        $nb = $req->execute();
+        return $nb;
     }
+
+	
 }

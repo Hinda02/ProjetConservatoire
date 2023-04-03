@@ -1,9 +1,9 @@
 <?php
 
-class Prof
+class Prof extends Eleve
 {
 
-    private $id;
+    private $idProf;
     private $instrument;
     private $salaire;
     
@@ -11,18 +11,19 @@ class Prof
 	/**
 	 * @return mixed
 	 */
-	public function getId() {
-		return $this->id;
+	public function getIdProf() {
+		return $this->idProf;
 	}
 
 	/**
-	 * @param mixed $id 
+	 * @param mixed $idProf 
 	 * @return self
 	 */
-	public function setId($id): self {
-		$this->id = $id;
+	public function setIdProf($idProf): self {
+		$this->idProf = $idProf;
 		return $this;
 	}
+	
 
 	/**
 	 * @return mixed
@@ -76,4 +77,6 @@ class Prof
         return $leResultat;
     }
     
+
+	
 }
