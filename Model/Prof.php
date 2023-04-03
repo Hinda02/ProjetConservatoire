@@ -1,6 +1,6 @@
 <?php
 
-class Prof extends Eleve
+class Prof extends Personne
 {
 
     private $idProf;
