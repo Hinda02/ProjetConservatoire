@@ -73,48 +73,34 @@ class Inscription
 		$this->dateInscription = $dateInscription;
 		return $this;
 	}
-    public static function getByAfficherInscription(){
+
+    public static function getAll(){
 
         $req = MonPdo::getInstance()->prepare("select * from inscription "); //select IDPROF/IDELEVE from inscription 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'inscription');
        
         $req->execute();
         $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-
-    
+  
 
         return $lesResultats;
     }
-    public static function deleteInscription( string $idProf ) {
 
-        $req = MonPdo::getInstance()->prepare(" delete from inscription where IDPROF = $idProf "); 
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+	public static function getBySeance(Seance $seance){
+
+		$idProf = $seance->IDPROF;
+		$numSeance = $seance->NUMSEANCE;
+        $req = MonPdo::getInstance()->prepare("select * from inscription where IDPROF = :idProf and numSeance = :numSeance;");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'inscription');
        
+		$req->bindParam('idProf', $idProf);
+        $req->bindParam('numSeance', $numSeance);
+
         $req->execute();
         $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-
-
-    
+  
 
         return $lesResultats;
-
     }
 
-    public static function addInscription(  ) { 
-
-        $req = MonPdo::getInstance()->prepare(" insert into inscription values ("""" "); 
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
-       
-        $req->execute();
-        $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-        
-
-    
-
-        return $lesResultats;
-
-    }
 }

@@ -120,4 +120,17 @@ class Seance
         $lesResultats = $req->fetchAll();
         return $lesResultats;
     }
+
+	public static function getById_NumSeance($idprof, $nums){
+        $req = MonPdo::getInstance()->prepare("select * from seance where IDPROF = :idprof and NUMSEANCE = :nums;");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'seance');
+
+		$req->bindParam('idprof', $idprof);
+        $req->bindParam('nums', $nums);
+
+        $req->execute();
+        $leResultat = $req->fetch();
+
+        return $leResultat;
+    }
 }

@@ -1,12 +1,12 @@
 <?php
 
 $action = $_GET["action"];
-$idcours = $_GET["idcours"];
+$idprof = $_GET["idprof"];
 $nums = $_GET["nums"];
 
 switch($action){
     case "liste":
-        $cours = Seance::getById_NumSeance($idcours, $nums);
+        $cours = Seance::getById_NumSeance($idprof, $nums);
         $lesInscriptions = Inscription::getBySeance($cours);
         
         foreach($lesInscriptions as $inscription){
