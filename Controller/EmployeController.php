@@ -3,11 +3,12 @@
 $action = $_GET["action"];
 
 switch($action){
-    case "choix":
+    case "accueil":
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "OK"){
-            include("view/accueil-admin.php");
+            $_GET["action"] = "liste";
+            include("Controller/SeanceController.php");
         }else{
-            include("view/formAdmin.php");
+            include("View/formAuthentification.php");
         }
         
         break;

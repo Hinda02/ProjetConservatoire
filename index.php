@@ -35,6 +35,14 @@
             include("Controller/EmployeController.php");
             break;
 
+        case "eleve":
+            include("Controller/EleveController.php");
+            break;
+
+        case "ajouterAdherent":
+            include("View/formAjoutAdh.php");
+            break;
+
         case "inscriptions":
             include("Controller/InscriptionController.php");
             break;

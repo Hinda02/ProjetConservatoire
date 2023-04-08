@@ -130,12 +130,12 @@ class Personne
     }
 
 	public static function addPersonne(Personne $personne){
-        $req = MonPdo::getInstance()->prepare("Insert into personne (nom, prenom, tel, mail, adresse) values(:nom, :prenom, :tel, :mail, :adresse);");
-        $nom = $personne->getNom();
+		$nom = $personne->getNom();
         $prenom = $personne->getPrenom();
         $tel = $personne->getTel();
 		$mail = $personne->getMail();
 		$adresse = $personne->getAdresse();
+        $req = MonPdo::getInstance()->prepare("Insert into personne (nom, prenom, tel, mail, adresse) values(:nom, :prenom, :tel, :mail, :adresse);");
         $req->bindParam('nom', $nom);
         $req->bindParam('prenom', $prenom);
         $req->bindParam('tel', $tel);
