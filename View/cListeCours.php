@@ -60,7 +60,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="mt-4 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-14 flex items-center sm:space-x-6 sm:pl-0 sm:mt-0">
-                                    <a class="flex items-center bg-orange-500 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="index.php?uc=eleve&action=inscription&idprof='.$cours->IDPROF.'&nums='.$cours->NUMSEANCE.'">
+                                    <a class="flex items-center bg-orange-400 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="index.php?uc=eleve&action=inscription&idprof='.$cours->IDPROF.'&nums='.$cours->NUMSEANCE.'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                             <circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line>
@@ -72,12 +72,12 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="mt-4 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-14 flex items-center sm:space-x-6 sm:pl-0 sm:mt-0">
-                                    <a class="flex items-center bg-sky-600 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="index.php?uc=inscriptions&action=liste&idprof='. $cours->IDPROF .'&nums='. $cours->NUMSEANCE .'">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <a class="flex items-center bg-blue-900 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="index.php?uc=inscriptions&action=liste&idprof='. $cours->IDPROF .'&nums='. $cours->NUMSEANCE .'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z">
                                                     </path><circle cx="12" cy="12" r="3"></circle>
                                                 </svg>
-                                        <span class="ml-3 text-black text-sm font-medium">Inscriptions</span>
+                                        <span class="ml-3 text-white text-sm font-medium">Inscriptions</span>
                                     </a>
                                 </div>
                             </td>

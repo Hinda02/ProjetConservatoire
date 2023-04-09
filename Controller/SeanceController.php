@@ -21,18 +21,16 @@ switch($action){
         include("view/listeProduits.php");
         break;
 
-    case "inscrire":
-        $idprof = $_GET["idprof"];
+    case "inscription":
         $ideleve = $_GET["ideleve"];
-        $nums = $_GET["nums"];
-        $nb = Seance::inscrire($idprof, $ideleve, $nums);
+        $lesCours = Seance::getAll();
 
-        if($nb == 1){
-            $_SESSION["message"] = "L'adhérent a été inscrit à ce cours";
+        foreach($lesCours as $cours){
+            $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
         }
 
-        header('Location: index.php?uc=cours&action=liste');
-
+        include("View/cListeCoursInscription.php");
         break;
+
 }
 ?>
