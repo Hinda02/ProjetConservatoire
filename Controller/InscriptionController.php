@@ -23,27 +23,18 @@ switch($action){
         include("view/listeProduits.php");
         break;
 
-    case "ajout":
-        include("view/formAjout.php");
-        break;
-
-    case "valideAjout":
-
-        $produit = new produit();
-        $produit->setNom($_POST["nom"]);
-        $produit->setPrix($_POST["prix"]);
-        $produit->setPhoto('Images/'.basename($_FILES["image"]["name"]));
-        $nom_image = basename($_FILES["image"]["name"]);
-        $chemin_destination = 'Images/'.$nom_image;
-        move_uploaded_file($_FILES['image']['tmp_name'], $chemin_destination);
-        $nb = produit::ajouter($produit);
+    case "inscrire":
+        $idprof = $_GET["idprof"];
+        $ideleve = $_GET["ideleve"];
+        $nums = $_GET["nums"];
+        $nb = Inscription::inscrire($idprof, $ideleve, $nums);
 
         if($nb == 1){
-            $_SESSION["message"] = "Le produit a été ajouté";
+            $_SESSION["message"] = "L'adhérent a été inscrit à ce cours";
         }
 
-        header('location: index.php?uc=bonbons&action=liste');
-        
+        header('Location: index.php?uc=cours&action=liste');
+
         break;
 
 

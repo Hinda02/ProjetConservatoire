@@ -46,7 +46,7 @@
                             </svg>
                                 <div class="pl-3">
                                     <div class="text-base font-semibold">'.$adherent->NOM.' '.$adherent->PRENOM.'</div>
-                                    <div class="font-normal text-gray-500">Professeur: '.$adherent->MAIL.'</div>
+                                    <div class="font-normal text-gray-500">'.$adherent->MAIL.'</div>
                                 </div>  
                             </th>
                             <td class="px-6 py-4">
@@ -60,8 +60,11 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="mt-4 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-14 flex items-center sm:space-x-6 sm:pl-0 sm:mt-0">
-                                    <a class="flex items-center bg-orange-500 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="#">
-                                        
+                                    <a class="flex items-center bg-orange-500 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="index.php?uc=inscriptions&action=inscrire&idprof='. $idprof .'&nums='. $nums .'&ideleve='. $adherent->IDELEVE .'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                                            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                                        </svg>
                                         <span class="ml-3 text-black text-sm font-medium">Inscrire</span>
                                     </a>
                                 </div>

@@ -46,7 +46,7 @@
                             </svg>
                                 <div class="pl-3">
                                     <div class="text-base font-semibold">'.$adherent->NOM.' '.$adherent->PRENOM.'</div>
-                                    <div class="font-normal text-gray-500">Professeur: '.$adherent->MAIL.'</div>
+                                    <div class="font-normal text-gray-500">'.$adherent->MAIL.'</div>
                                 </div>  
                             </th>
                             <td class="px-6 py-4">

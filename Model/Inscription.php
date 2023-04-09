@@ -103,4 +103,18 @@ class Inscription
         return $lesResultats;
     }
 
+	public static function inscrire($idprof, $ideleve, $numseance) {
+
+		$date = date("Y-m-d");
+		$req = MonPdo::getInstance()->prepare("insert into inscription values(:idprof, :ideleve, :numseance, :date)");
+        
+        $req->bindParam('idprof', $idprof);
+		$req->bindParam('ideleve', $ideleve);
+		$req->bindParam('numseance', $numseance);
+        $req->bindParam('date', $date);
+        
+        $nb = $req->execute();
+        return $nb;
+    }
+
 }

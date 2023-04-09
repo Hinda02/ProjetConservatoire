@@ -133,4 +133,5 @@ class Seance
 
         return $leResultat;
     }
+
 }

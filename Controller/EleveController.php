@@ -25,6 +25,7 @@ switch($action){
         include("View/cListeAdhInscription.php");
         break;
 
+
     case "valideAjout":
 
         $eleve = new Eleve();
