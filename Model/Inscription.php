@@ -103,6 +103,20 @@ class Inscription
         return $lesResultats;
     }
 
+	public static function getByEleve($ideleve){
+
+        $req = MonPdo::getInstance()->prepare("select * from inscription where IDELEVE = :ideleve;");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'inscription');
+       
+		$req->bindParam('ideleve', $ideleve);
+
+        $req->execute();
+        $lesResultats = $req->fetchAll();
+  
+
+        return $lesResultats;
+    }
+
 	public static function inscrire($idprof, $ideleve, $numseance) {
 
 		$date = date("Y-m-d");
@@ -114,6 +128,19 @@ class Inscription
         $req->bindParam('date', $date);
         
         $nb = $req->execute();
+        return $nb;
+    }
+
+	public static function delete($idprof, $ideleve, $numseance) {
+
+		$req = MonPdo::getInstance()->prepare("delete from inscription where IDPROF = :idprof and IDELEVE = :ideleve and NUMSEANCE = :numseance;");
+        
+        $req->bindParam('idprof', $idprof);
+		$req->bindParam('ideleve', $ideleve);
+		$req->bindParam('numseance', $numseance);
+        
+        $nb = $req->execute();
+		var_dump($nb);
         return $nb;
     }
 

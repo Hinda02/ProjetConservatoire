@@ -1,11 +1,11 @@
 <?php
 
 $action = $_GET["action"];
-$idprof = $_GET["idprof"];
-$nums = $_GET["nums"];
 
 switch($action){
     case "liste":
+        $idprof = $_GET["idprof"];
+        $nums = $_GET["nums"];
         $cours = Seance::getById_NumSeance($idprof, $nums);
         $lesInscriptions = Inscription::getBySeance($cours);
         
@@ -14,6 +14,17 @@ switch($action){
         }
 
         include("View/cListeInscriptions.php");
+        break;
+
+    case "listeParAdh":
+        $eleve = $_GET["ideleve"];
+        $lesInscriptions = Inscription::getByEleve($eleve);
+        
+        foreach($lesInscriptions as $inscription){
+            $lesProfs[$inscription->IDPROF] = Prof::getById($inscription->IDPROF);
+        }
+
+        include("View/cListeInscriptionsAdh.php");
         break;
 
     case "bonbon":
@@ -31,6 +42,20 @@ switch($action){
 
         if($nb == 1){
             $_SESSION["message"] = "L'adhérent a été inscrit à ce cours";
+        }
+
+        header('Location: index.php?uc=cours&action=liste');
+
+        break;
+
+    case "supprimer":
+        $idprof = $_GET["idprof"];
+        $ideleve = $_GET["ideleve"];
+        $nums = $_GET["nums"];
+        $nb = Inscription::delete($idprof, $ideleve, $nums);
+
+        if($nb == 1){
+            $_SESSION["message"] = "Cette inscription a été annulée";
         }
 
         header('Location: index.php?uc=cours&action=liste');

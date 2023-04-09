@@ -30,8 +30,6 @@
                 </th>
                 <th scope="col" class="px-6 py-3">
                 </th>
-                <th scope="col" class="px-6 py-3">
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -60,27 +58,16 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="mt-4 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-14 flex items-center sm:space-x-6 sm:pl-0 sm:mt-0">
-                                    <a class="flex items-center bg-orange-400 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                            <circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line>
-                                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                                    <a class="flex items-center bg-red-500 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="index.php?uc=inscriptions&action=supprimer&idprof='.$inscription->IDPROF.'&ideleve='.$inscription->IDELEVE.'&nums='.$inscription->NUMSEANCE.'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" 
+                                            stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.08V8l-6-6H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h6"/><path d="M14 3v5h5M15.88 
+                                            20.12l4.24-4.24M15.88 15.88l4.24 4.24"/>
                                         </svg>
-                                        <span class="ml-3 text-black text-sm font-medium">Adhérent</span>
+                                        <span class="ml-3 text-black text-sm font-medium">Désincrire</span>
                                     </a>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
-                                <div class="mt-4 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-14 flex items-center sm:space-x-6 sm:pl-0 sm:mt-0">
-                                    <a class="flex items-center bg-blue-900 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z">
-                                                    </path><circle cx="12" cy="12" r="3"></circle>
-                                                </svg>
-                                        <span class="ml-3 text-white text-sm font-medium">Inscriptions</span>
-                                    </a>
-                                </div>
-                            </td>
+
                         </tr>';
 
             }   

@@ -69,17 +69,7 @@
                                     </a>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
-                                <div class="mt-4 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-14 flex items-center sm:space-x-6 sm:pl-0 sm:mt-0">
-                                    <a class="flex items-center bg-blue-900 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="index.php?uc=inscriptions&action=liste&idprof='. $cours->IDPROF .'&nums='. $cours->NUMSEANCE .'">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z">
-                                                    </path><circle cx="12" cy="12" r="3"></circle>
-                                                </svg>
-                                        <span class="ml-3 text-white text-sm font-medium">Inscriptions</span>
-                                    </a>
-                                </div>
-                            </td>
+
                         </tr>';
 
             }   
