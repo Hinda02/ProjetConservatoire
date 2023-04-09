@@ -61,12 +61,8 @@
                             <td class="px-6 py-4">
                                 <div class="mt-4 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-14 flex items-center sm:space-x-6 sm:pl-0 sm:mt-0">
                                     <a class="flex items-center bg-orange-500 h-12 px-3 mt-2 rounded hover:bg-gray-300" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                            <circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line>
-                                            <line x1="23" y1="11" x2="17" y2="11"></line>
-                                        </svg>
-                                        <span class="ml-3 text-black text-sm font-medium">Adhérent</span>
+                                        
+                                        <span class="ml-3 text-black text-sm font-medium">Inscrire</span>
                                     </a>
                                 </div>
                             </td>

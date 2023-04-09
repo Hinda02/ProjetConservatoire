@@ -5,13 +5,9 @@ $action = $_GET["action"];
 
 switch($action){
     case "liste":
-        $lesCours = Seance::getAll();
-        
-        foreach($lesCours as $cours){
-            $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
-        }
+        $lesAdherents = Eleve::getAll();
 
-        include("View/cListeCours.php");
+        include("View/cListeAdh.php");
         break;
 
     case "bonbon":
@@ -21,8 +17,12 @@ switch($action){
         include("view/listeProduits.php");
         break;
 
-    case "ajout":
-        include("view/formAjout.php");
+    case "inscription":
+        $idprof = $_GET["idprof"];
+        $nums = $_GET["nums"];
+        $lesAdherents = Eleve::getNotInSeance($idprof, $nums);
+
+        include("View/cListeAdhInscription.php");
         break;
 
     case "valideAjout":

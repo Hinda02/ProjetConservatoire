@@ -43,7 +43,7 @@ class Eleve extends Personne
 
     public static function getAll(){
 
-        $req = MonPdo::getInstance()->prepare("select idEleve, bourse from eleve inner join personne Eleve.idEleve = Personne.idEleve;"); //select IDELEVE from eleve 
+        $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID order by nom asc;");  
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
        
         $req->execute();
@@ -51,13 +51,19 @@ class Eleve extends Personne
 
         return $lesResultats;
     }
-    
-    public  static function deleteEleve (string $idEleve ) {
 
-        $req = MonPdo::getInstance()->prepare("delete from eleve where idEleve = :idEleve;"); 
-      
+	public static function getNotInSeance($idprof, $numseance){
+
+        $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID
+		where eleve.IDELEVE not in( select ideleve from inscription where idprof = :idProf and numseance = :numSeance);");  
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+		$req->bindParam('idProf', $idprof);
+        $req->bindParam('numSeance', $numseance);
+       
         $req->execute();
+        $lesResultats = $req->fetchAll();
 
+        return $lesResultats;
     }
    
     public static function addEleve(Eleve $eleve) {
