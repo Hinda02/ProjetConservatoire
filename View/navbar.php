@@ -1,5 +1,5 @@
 <!-- Component Start -->
-<div class="flex flex-col items-center w-40 h-screen overflow-hidden text-gray-700 bg-gray-100 rounded">
+<div class="flex flex-col fixed z-10 top-0 left-0 transition-transform -translate-x-full sm:translate-x-0 items-center w-40 h-screen overflow-hidden text-gray-700 bg-gray-100 rounded">
 		<a class="flex items-center w-full px-3 mt-3" href="#">
 			<img src="Images\logoMPT.png" class="">
 		</a>

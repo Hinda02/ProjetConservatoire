@@ -1,9 +1,9 @@
-<div class="grid grid-cols-7 content-start bg-indigo-200">
+<div class="bg-indigo-200 h-screen">
 <?php
     include("View/navbarprof.php");
 ?>
-<div class="col-span-6 flex-col shadow-md sm:rounded-lg bg-indigo-100">
-    <div class="flex items-center justify-between pb-4 bg-indigo-200">
+<div class="sm:ml-40">
+    <div class="flex items-center justify-between p-4 bg-indigo-200">
         <div></div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative">

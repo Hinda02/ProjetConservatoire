@@ -1,8 +1,8 @@
-<div class="grid grid-cols-5 content-start">
+<div>
 <?php
     include("View/navbar.php");
 ?>
-<div class="col-span-4 flex flex-col justify-center shadow-md sm:rounded-lg">
+<div class="sm:ml-40">
 
 <form class="ml-10 w-full max-w-lg flex-col" action="index.php?uc=eleve&action=valideAjout" method="post">
 

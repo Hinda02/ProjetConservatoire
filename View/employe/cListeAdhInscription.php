@@ -1,9 +1,9 @@
-<div class="grid grid-cols-7 content-start">
+<div>
 <?php
     include("View/navbar.php");
 ?>
-<div class="col-span-6 flex-col shadow-md sm:rounded-lg">
-    <div class="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
+<div class="sm:ml-40">
+    <div class="flex items-center justify-between p-4 bg-white dark:bg-gray-900">
         <div></div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative">
