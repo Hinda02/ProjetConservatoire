@@ -13,7 +13,7 @@ switch($action){
             $lesEleves[$inscription->IDELEVE] = Eleve::getById($inscription->IDELEVE);
         }
 
-        include("View/cListeInscriptions.php");
+        include("View/employe/cListeInscriptions.php");
         break;
 
     case "listeParAdh":
@@ -24,14 +24,7 @@ switch($action){
             $lesProfs[$inscription->IDPROF] = Prof::getById($inscription->IDPROF);
         }
 
-        include("View/cListeInscriptionsAdh.php");
-        break;
-
-    case "bonbon":
-        $recherche = $_POST["choice"];
-        $donnees = Produit::securiser($recherche);
-        $lesProduits = Produit::rechercher($donnees);
-        include("view/listeProduits.php");
+        include("View/employe/cListeInscriptionsAdh.php");
         break;
 
     case "inscrire":

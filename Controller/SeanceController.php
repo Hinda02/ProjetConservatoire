@@ -11,7 +11,7 @@ switch($action){
             $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
         }
 
-        include("View/cListeCours.php");
+        include("View/employe/cListeCours.php");
         break;
 
     case "listeP":
@@ -21,14 +21,7 @@ switch($action){
             $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
         }
 
-        include("View/cListeCoursProf.php");
-        break;
-
-    case "bonbon":
-        $recherche = $_POST["choice"];
-        $donnees = Produit::securiser($recherche);
-        $lesProduits = Produit::rechercher($donnees);
-        include("view/listeProduits.php");
+        include("View/prof/cListeCoursProf.php");
         break;
 
     case "inscription":
@@ -39,7 +32,7 @@ switch($action){
             $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
         }
 
-        include("View/cListeCoursInscription.php");
+        include("View/employe/cListeCoursInscription.php");
         break;
 
 }

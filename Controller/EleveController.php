@@ -7,14 +7,7 @@ switch($action){
     case "liste":
         $lesAdherents = Eleve::getAll();
 
-        include("View/cListeAdh.php");
-        break;
-
-    case "bonbon":
-        $recherche = $_POST["choice"];
-        $donnees = Produit::securiser($recherche);
-        $lesProduits = Produit::rechercher($donnees);
-        include("view/listeProduits.php");
+        include("View/employe/cListeAdh.php");
         break;
 
     case "inscription":
@@ -22,7 +15,7 @@ switch($action){
         $nums = $_GET["nums"];
         $lesAdherents = Eleve::getNotInSeance($idprof, $nums);
 
-        include("View/cListeAdhInscription.php");
+        include("View/employe/cListeAdhInscription.php");
         break;
 
     case "listeA":
@@ -30,7 +23,7 @@ switch($action){
         $nums = $_GET["nums"];
         $lesAdherents = Eleve::getInSeance($idprof, $nums);
 
-        include("View/cListeAdhProf.php");
+        include("View/prof/cListeAdhProf.php");
         break;
 
 
