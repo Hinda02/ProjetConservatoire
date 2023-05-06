@@ -44,7 +44,7 @@
             break;
 
         case "ajouterAdherent":
-            include("View/formAjoutAdh.php");
+            include("View//employe/formAjoutAdh.php");
             break;
 
         case "inscriptions":
