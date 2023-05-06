@@ -87,7 +87,26 @@ class Prof extends Personne
         $leResultat = $req->fetch();
         return $leResultat[0];
     }
-    
 
+	public static function verifMdp($login, $mdp){
+
+        $req = MonPdo::getInstance()->prepare("select * from prof where login = :login and mdp = :mdp");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
+        $req->bindParam('login', $login);
+        $req->bindParam('mdp', $mdp);
+        $req->execute();
+        $leResultat = $req->fetch();
+		return $leResultat;
+
+        //$nb_lignes = count($lesResultats);
+
+        /*if($nb_lignes==0){
+            $rep = false;
+        }else{
+            $rep = true;
+        }
+
+        return $rep;*/
+    }
 	
 }

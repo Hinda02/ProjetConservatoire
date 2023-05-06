@@ -134,6 +134,18 @@ class Seance
         return $leResultat;
     }
 
+	public static function getByIdProf($idprof){
+        $req = MonPdo::getInstance()->prepare("select * from seance where IDPROF = :idprof;");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'seance');
+
+		$req->bindParam('idprof', $idprof);
+
+        $req->execute();
+        $lesResultats = $req->fetchAll();
+
+        return $lesResultats;
+    }
+
 	public static function getNonInscrit($ideleve){ //impossible donc a gerer cote code
         $req = MonPdo::getInstance()->prepare("select * from seance where IDPROF = :idprof and NUMSEANCE = :nums;");
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'seance');

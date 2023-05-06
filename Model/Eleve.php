@@ -65,6 +65,20 @@ class Eleve extends Personne
 
         return $lesResultats;
     }
+
+	public static function getInSeance($idprof, $numseance){
+
+        $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID
+		where eleve.IDELEVE in( select ideleve from inscription where idprof = :idProf and numseance = :numSeance);");  
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+		$req->bindParam('idProf', $idprof);
+        $req->bindParam('numSeance', $numseance);
+       
+        $req->execute();
+        $lesResultats = $req->fetchAll();
+
+        return $lesResultats;
+    }
    
     public static function addEleve(Eleve $eleve) {
 		parent::addPersonne($eleve);

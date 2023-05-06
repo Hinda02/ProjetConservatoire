@@ -24,7 +24,7 @@
     
     switch($uc){
         case "authentification":
-            include("View/formAuthentification.php");
+            include("View/formAuth.php");
             break;
     
         case "cours":
@@ -37,6 +37,10 @@
 
         case "eleve":
             include("Controller/EleveController.php");
+            break;
+
+        case "prof":
+            include("Controller/ProfController.php");
             break;
 
         case "ajouterAdherent":

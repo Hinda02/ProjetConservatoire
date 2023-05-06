@@ -25,6 +25,14 @@ switch($action){
         include("View/cListeAdhInscription.php");
         break;
 
+    case "listeA":
+        $idprof = $_GET["idprof"];
+        $nums = $_GET["nums"];
+        $lesAdherents = Eleve::getInSeance($idprof, $nums);
+
+        include("View/cListeAdhProf.php");
+        break;
+
 
     case "valideAjout":
 

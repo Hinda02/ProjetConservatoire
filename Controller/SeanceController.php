@@ -14,6 +14,16 @@ switch($action){
         include("View/cListeCours.php");
         break;
 
+    case "listeP":
+        $lesCours = Seance::getByIdProf($_SESSION["idProf"]);
+        
+        foreach($lesCours as $cours){
+            $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
+        }
+
+        include("View/cListeCoursProf.php");
+        break;
+
     case "bonbon":
         $recherche = $_POST["choice"];
         $donnees = Produit::securiser($recherche);
