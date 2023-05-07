@@ -28,8 +28,7 @@ switch($action){
 
     case "deconnexion":
         Employe::deconnexion();
-        include("view/accueil.php");
-
+        header("Location: index.php");
 
 }
 ?>

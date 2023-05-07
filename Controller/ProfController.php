@@ -31,7 +31,7 @@ switch($action){
     
     case "deconnexion":
         Prof::deconnexion();
-        include("view/accueil.php");
+        header("Location: index.php");
 
 }
 
