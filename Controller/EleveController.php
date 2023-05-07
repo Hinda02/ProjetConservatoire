@@ -21,7 +21,9 @@ switch($action){
     case "listeA":
         $idprof = $_GET["idprof"];
         $nums = $_GET["nums"];
+        $leProf = Prof::getById($idprof);
         $lesAdherents = Eleve::getInSeance($idprof, $nums);
+        $laSeance = Seance::getById_NumSeance($idprof, $nums);
 
         include("View/prof/cListeAdhProf.php");
         break;

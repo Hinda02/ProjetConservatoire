@@ -1,10 +1,23 @@
 <div class="bg-indigo-200 h-screen">
 <?php
+    $_SESSION["lesAdherents"] = $lesAdherents;
+    $_SESSION["laSeance"] = $laSeance;
+    $_SESSION["leProf"] = $leProf;
+
     include("View/navbarprof.php");
 ?>
 <div class="sm:ml-40">
     <div class="flex items-center justify-between p-4 bg-indigo-200">
-        <div></div>
+        <div>
+            <a href="createpdf.php" class="flex items-center border border-gray-300 rounded-lg bg-indigo-100 p-2">
+            <svg class="w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4c4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+                <p class="text-gray-600 pl-2">Imprimer en PDF</p>
+            </a>
+        </div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

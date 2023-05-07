@@ -1,20 +1,20 @@
 <!-- Component Start -->
-<div class="flex flex-col fixed z-10 top-0 left-0 transition-transform -translate-x-full sm:translate-x-0 items-center w-40 h-screen overflow-hidden text-gray-100 bg-indigo-400 rounded">
-		<a class="flex items-center w-full px-3 mt-3" href="#">
-			<img src="Images\logoMPT.png" class="">
+<div class="flex flex-col fixed z-10 top-0 left-0 transition-transform -translate-x-full sm:translate-x-0 items-center w-40 h-screen overflow-hidden text-gray-100 bg-indigo-700 rounded">
+		<a class="flex items-center w-full px-3 mt-3">
+			<img src="Images\logoMPT.png" class="rounded-lg">
 		</a>
-		<a class="flex items-center w-full px-3 mt-3" href="#">
-			<span class="ml-2 text-sm font-bold">Musique Pour Tous</span>
+		<a class="flex items-center w-full px-3 mt-3">
+			<span class="ml-2 text-sm font-bold align-center">Musique Pour Tous</span>
 		</a>
 		<div class="w-full px-2">
 			<div class="flex flex-col items-center w-full mt-3 border-t border-gray-300">
-				<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-300" href="index.php?uc=prof&action=accueil">
+				<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-500" href="index.php?uc=prof&action=accueil">
 					<svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
 					</svg>
 					<span class="ml-2 text-sm font-medium">Accueil</span>
 				</a>
-				<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-300" href="#">
+				<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-500" href="#">
 					<svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 					</svg>
@@ -64,7 +64,7 @@
 			</div>
 			
 		</div>
-		<a class="flex items-center justify-center w-full h-16 mt-auto bg-indigo-500 hover:bg-indigo-600" href="#">
+		<a class="flex items-center justify-center w-full h-16 mt-auto bg-indigo-400 hover:bg-indigo-500" href="#">
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<path d="M16 17l5-5-5-5M19.8 12H9M10 3H4v18h6"/>
 			</svg>
