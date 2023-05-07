@@ -1,9 +1,9 @@
 <!-- Component Start -->
 <div class="flex flex-col fixed z-10 top-0 left-0 transition-transform -translate-x-full sm:translate-x-0 items-center w-40 h-screen overflow-hidden text-gray-700 bg-gray-100 rounded">
-		<a class="flex items-center w-full px-3 mt-3" href="#">
-			<img src="Images\logoMPT.png" class="">
+		<a class="flex items-center w-full px-3 mt-3">
+			<img src="Images\logoMPT.png" class="rounded-lg">
 		</a>
-		<a class="flex items-center w-full px-3 mt-3" href="#">
+		<a class="flex items-center w-full px-3 mt-3">
 			<span class="ml-2 text-sm font-bold">Musique Pour Tous</span>
 		</a>
 		<div class="w-full px-2">
@@ -64,7 +64,7 @@
 			</div>
 			
 		</div>
-		<a class="flex items-center justify-center w-full h-16 mt-auto bg-gray-200 hover:bg-gray-300" href="#">
+		<a class="flex items-center justify-center w-full h-16 mt-auto bg-gray-200 hover:bg-gray-300" href="index.php?uc=employe&action=deconnexion">
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 			<path d="M16 17l5-5-5-5M19.8 12H9M10 3H4v18h6"/></svg>
 			<span class="ml-2 text-sm font-medium">Se déconnecter</span>

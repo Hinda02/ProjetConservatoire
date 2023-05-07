@@ -5,7 +5,7 @@ $action = $_GET["action"];
 switch($action){
 
     case "accueil":
-        if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "OK"){
+        if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "prof"){
             $_GET["action"] = "listeP";
             include("Controller/SeanceController.php");
         }else{
@@ -20,13 +20,18 @@ switch($action){
         $result = Prof::verifMdp($login, $mdp);
         $idP = $result->IDPROF;
         if($result){
-            $_SESSION["autorisation"] = "OK";
+            $_SESSION["autorisation"] = "prof";
             $_SESSION["idProf"] = $idP;
             $_GET["action"] = "listeP";
             include("Controller/SeanceController.php");
         }else{
             include("View/formAuth.php");
         }
+        break;
+    
+    case "deconnexion":
+        Prof::deconnexion();
+        include("view/accueil.php");
 
 }
 

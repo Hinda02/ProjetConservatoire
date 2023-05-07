@@ -4,7 +4,7 @@ $action = $_GET["action"];
 
 switch($action){
     case "accueil":
-        if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "OK"){
+        if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
             $_GET["action"] = "liste";
             include("Controller/SeanceController.php");
         }else{
@@ -18,7 +18,7 @@ switch($action){
         $mdp = $_POST["mdp"];
         $result = Employe::verifier($login, $mdp);
         if($result){
-            $_SESSION["autorisation"] = "OK";
+            $_SESSION["autorisation"] = "emp";
             $_GET["action"] = "liste";
             include("Controller/SeanceController.php");
         }else{

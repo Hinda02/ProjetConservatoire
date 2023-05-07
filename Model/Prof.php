@@ -98,15 +98,11 @@ class Prof extends Personne
         $leResultat = $req->fetch();
 		return $leResultat;
 
-        //$nb_lignes = count($lesResultats);
+    }
 
-        /*if($nb_lignes==0){
-            $rep = false;
-        }else{
-            $rep = true;
-        }
-
-        return $rep;*/
+	public static function deconnexion(){
+        session_destroy();
+        header("Location: index.php");
     }
 	
 }
