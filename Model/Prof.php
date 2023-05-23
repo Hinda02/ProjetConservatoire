@@ -101,7 +101,8 @@ class Prof extends Personne
     }
 
 	public static function deconnexion(){
-        session_destroy();
+        unset($_SESSION['user']);
+		unset($_SESSION['autorisation']);
         header("Location: index.php");
     }
 	

@@ -18,6 +18,7 @@ switch($action){
         $mdp = $_POST["mdp"];
         $result = Employe::verifier($login, $mdp);
         if($result){
+            $_SESSION["user"] = $login;
             $_SESSION["autorisation"] = "emp";
             $_GET["action"] = "liste";
             include("Controller/SeanceController.php");
