@@ -120,7 +120,9 @@ class Inscription
 	public static function inscrire($idprof, $ideleve, $numseance) {
 
 		$date = date("Y-m-d");
-		$req = MonPdo::getInstance()->prepare("insert into inscription values(:idprof, :ideleve, :numseance, :date)");
+		$req = MonPdo::getInstance()->prepare("insert into inscription values(:idprof, :ideleve, :numseance, :date);
+												UPDATE seance SET CAPACITE = CAPACITE - 1
+												WHERE IDPROF = :idprof and NUMSEANCE = :numseance;");
         
         $req->bindParam('idprof', $idprof);
 		$req->bindParam('ideleve', $ideleve);
@@ -133,7 +135,9 @@ class Inscription
 
 	public static function delete($idprof, $ideleve, $numseance) {
 
-		$req = MonPdo::getInstance()->prepare("delete from inscription where IDPROF = :idprof and IDELEVE = :ideleve and NUMSEANCE = :numseance;");
+		$req = MonPdo::getInstance()->prepare("delete from inscription where IDPROF = :idprof and IDELEVE = :ideleve and NUMSEANCE = :numseance;
+												UPDATE seance SET CAPACITE = CAPACITE + 1
+												WHERE IDPROF = :idprof and NUMSEANCE = :numseance;");
         
         $req->bindParam('idprof', $idprof);
 		$req->bindParam('ideleve', $ideleve);
