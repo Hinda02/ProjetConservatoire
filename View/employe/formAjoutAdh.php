@@ -6,8 +6,10 @@
     include("View/navbar.php");
 ?>
 
+<section style="background-image: url('Images/watermusic.jpg');" class="p-12 bg-violet-600">
 
-<div style=" background-image: url('Images/img_form.jpg');" class="bg-no-repeat bg-center h-screen">
+
+
 
 <div class="sm:ml-40 ">
 <form class="mt-40 ml-60 w-full max-w-lg flex-col" action="index.php?uc=eleve&action=valideAjout" method="post">
