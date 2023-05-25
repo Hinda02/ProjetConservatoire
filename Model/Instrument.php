@@ -23,11 +23,11 @@
     
         public static function rechercheInstrument($instrument) {
     
-        $req = MonPdo::getInstance()->prepare("select * from instrument where lower(libelle) like ('%".$instrument."%')");
+        $req = MonPdo::getInstance()->prepare("select * from instrument where lower(libelle) like ('%:instrument%')");
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'instrument');
         $req->bindParam('instrument', $instrument);
         $req->execute();
-        $leResultat = $req->fetch();
+        $leResultat = $req->fetchAll();
         return $leResultat;
         }    
 
