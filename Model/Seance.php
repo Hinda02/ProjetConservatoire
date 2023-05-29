@@ -159,5 +159,7 @@ class Seance
         return $lesResultats;
     }
 
+	
+
 }
 ?>

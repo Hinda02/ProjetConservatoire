@@ -48,5 +48,17 @@ switch($action){
         }
         break;
 
+    case "recherche":
+        if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
+            $instrument = $_POST["recherche"];
+            $lesCours = Instrument::rechercheSeance($instrument);
+                
+        
+            include("View/employe/cListeCours.php");
+        }else{
+            include("View/formAuth.php");
+        }
+        break;
+
 }
 ?>
