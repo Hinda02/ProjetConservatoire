@@ -159,6 +159,23 @@ class Seance
         return $lesResultats;
     }
 
+	public static function rechercheSeance($instrument) {
+
+		$instrument = "%" . $instrument . "%";
+
+        $req = MonPdo::getInstance()->prepare("select * from instrument 
+                                               inner join prof on instrument.LIBELLE = prof.INSTRUMENT
+                                               inner join seance on prof.IDPROF = seance.IDPROF
+                                               where lower(instrument.LIBELLE) like (:instrument)");                                    
+                                                     
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'seance');
+        $req->bindParam('instrument', $instrument, PDO::PARAM_STR);
+        $req->execute();
+        $lesResultats = $req->fetchAll();
+		return $lesResultats;
+        
+    }
+
 	
 
 }
