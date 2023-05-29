@@ -23,7 +23,7 @@ switch($action){
         
         $lesAdherents = Eleve::getNotInSeance($idprof, $nums, $jour, $tranche);
 
-        include("View/employe/cListeAdh.php");
+        include("View/employe/cListeAdhInscription.php");
         }else{
             include("View/formAuth.php");
         }
