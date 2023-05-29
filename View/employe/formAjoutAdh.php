@@ -12,7 +12,7 @@
 
 
 <div class="sm:ml-40 ">
-<form class="mt-40 ml-60 w-full max-w-lg flex-col" action="index.php?uc=eleve&action=valideAjout" method="post">
+<form class="mt-30 ml-60 w-full max-w-lg flex-col" action="index.php?uc=eleve&action=valideAjout" method="post">
 
   <div class="flex flex-wrap -mx-3 mb-6">
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
