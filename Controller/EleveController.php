@@ -66,7 +66,20 @@ switch($action){
         }
         break;
 
-       
+        case "recherche":
+            if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
+                $eleve = $_POST["recherche"];
+                $lesAdherents = Eleve::rechercheEleve($eleve);
+    
+                foreach($lesAdherents as $adherent){
+                    $lesAdherents[$adherent->IDELEVE] = Eleve::getById($adherent->IDELEVE);
+                }
+                    
+                include("View/employe/cListeAdh.php");
+            }else{
+                include("View/formAuth.php");
+            }
+            break;
 
     
     }

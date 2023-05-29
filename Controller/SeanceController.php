@@ -50,7 +50,7 @@ switch($action){
 
     case "recherche":
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
-            $instrument = $_POST["rechercher"];
+            $instrument = $_POST["recherche"];
             $lesCours = Seance::rechercheSeance($instrument);
 
             foreach($lesCours as $cours){
