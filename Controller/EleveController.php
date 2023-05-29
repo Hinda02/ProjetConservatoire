@@ -65,5 +65,9 @@ switch($action){
             include("View/formAuth.php");
         }
         break;
-}
+
+       
+
+    
+    }
 ?>

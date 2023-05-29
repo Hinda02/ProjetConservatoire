@@ -50,10 +50,13 @@ switch($action){
 
     case "recherche":
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
-            $instrument = $_POST["recherche"];
-            $lesCours = Instrument::rechercheSeance($instrument);
+            $instrument = $_POST["rechercher"];
+            $lesCours = Seance::rechercheSeance($instrument);
+
+            foreach($lesCours as $cours){
+                $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
+            }
                 
-        
             include("View/employe/cListeCours.php");
         }else{
             include("View/formAuth.php");
