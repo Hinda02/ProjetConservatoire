@@ -52,15 +52,31 @@ class Eleve extends Personne
         return $lesResultats;
     }
 
-	public static function getNotInSeance($idprof, $numseance){
+	public static function getNotInSeance($idprof, $numseance, $jour, $tranche){
+
+        $lesSeances = Seance::getByJour_Tranche($jour, $tranche);
+        $arrayEleves = array();
+        foreach($lesSeances as $laSeance){
+            $inscriptions = Inscription::getBySeance($laSeance);
+            foreach($inscriptions as $inscription){
+                array_push($arrayEleves, $inscription->IDELEVE);
+            }
+        }
+
+        $string = "";
+        foreach($arrayEleves as $id){
+            $string = $string . $id . ", ";
+        }
+        $string = $string . "-1";
 
         $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID
-		where eleve.IDELEVE not in( select ideleve from inscription where idprof = :idProf and numseance = :numSeance);");  
+		where eleve.IDELEVE not in( select ideleve from inscription where idprof = :idProf and numseance = :numSeance)
+        AND eleve.IDELEVE not in( ". $string .");");  
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
-		$req->bindParam('idProf', $idprof);
+        $req->bindParam('idProf', $idprof);
         $req->bindParam('numSeance', $numseance);
-       
         $req->execute();
+
         $lesResultats = $req->fetchAll();
 
         return $lesResultats;
