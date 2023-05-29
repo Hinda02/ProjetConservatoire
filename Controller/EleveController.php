@@ -18,9 +18,12 @@ switch($action){
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
         $idprof = $_GET["idprof"];
         $nums = $_GET["nums"];
-        $lesAdherents = Eleve::getNotInSeance($idprof, $nums);
+        $jour = $_GET["jour"];
+        $tranche = $_GET["tranche"];
+        
+        $lesAdherents = Eleve::getNotInSeance($idprof, $nums, $jour, $tranche);
 
-        include("View/employe/cListeAdhInscription.php");
+        include("View/employe/cListeAdh.php");
         }else{
             include("View/formAuth.php");
         }

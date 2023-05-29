@@ -146,17 +146,17 @@ class Seance
         return $lesResultats;
     }
 
-	public static function getNonInscrit($ideleve){ //impossible donc a gerer cote code
-        $req = MonPdo::getInstance()->prepare("select * from seance where IDPROF = :idprof and NUMSEANCE = :nums;");
+	public static function getByJour_Tranche($jour, $tranche){
+        $req = MonPdo::getInstance()->prepare("select * from seance where JOUR = :jour and TRANCHE = :tranche;");
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'seance');
 
-		$req->bindParam('idprof', $idprof);
-        $req->bindParam('nums', $nums);
+		$req->bindParam('jour', $jour);
+        $req->bindParam('tranche', $tranche);
 
         $req->execute();
-        $leResultat = $req->fetch();
+        $lesResultats = $req->fetchAll();
 
-        return $leResultat;
+        return $lesResultats;
     }
 
 }
