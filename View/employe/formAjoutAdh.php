@@ -6,7 +6,7 @@
     include("View/navbar.php");
 ?>
 
-<section style="background-image: url('Images/music.jpg');" class="p-12 bg-violet-600">
+<section style="background-image: url('Images/music.jpg');" class="bg-cover h-screen overflow-hidden p-12 bg-violet-600">
 
 
 
