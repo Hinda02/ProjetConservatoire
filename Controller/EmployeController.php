@@ -8,7 +8,7 @@ switch($action){
             $_GET["action"] = "liste";
             include("Controller/SeanceController.php");
         }else{
-            include("View/formAuthentification.php");
+            include("View/formAuth.php");
         }
         
         break;
@@ -23,7 +23,7 @@ switch($action){
             $_GET["action"] = "liste";
             include("Controller/SeanceController.php");
         }else{
-            include("View/formAthentification.php");
+            include("View/formAuth.php");
         }
         break;
 
