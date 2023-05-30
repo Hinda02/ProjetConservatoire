@@ -54,9 +54,6 @@
         
         }
     }
-     catch (AffichageException $ex) {
-        echo "Erreur: " . $ex->errorMessage();
-    }
      catch (Exception $ex) {
         echo "Erreur: " . $ex->getMessage();
     }
