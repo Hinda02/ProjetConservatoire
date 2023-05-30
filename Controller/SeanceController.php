@@ -53,7 +53,7 @@ switch($action){
             $instrument = $_POST["recherche"];
             
             try{
-                $$lesCours = Seance::rechercheSeance($instrument);
+                $lesCours = Seance::rechercheSeance($instrument);
 
                 foreach($lesCours as $cours){
                     $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
