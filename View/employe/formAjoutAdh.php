@@ -10,7 +10,7 @@
 if(!empty($_SESSION['message']))
     {
       ?>
-        <div class="ml-96 alert alert-success" role="alert" data-auto-dismiss="2000">
+        <div class="m-2 bg-red-200 font-semibold flex justify-center alert alert-success" role="alert" data-auto-dismiss="2000">
             <?php echo($_SESSION["message"]); 
                   unset($_SESSION["message"]); 	
             ?>

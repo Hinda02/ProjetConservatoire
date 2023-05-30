@@ -51,10 +51,15 @@ switch($action){
     case "recherche":
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
             $instrument = $_POST["recherche"];
-            $lesCours = Seance::rechercheSeance($instrument);
+            
+            try{
+                $$lesCours = Seance::rechercheSeance($instrument);
 
-            foreach($lesCours as $cours){
-                $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
+                foreach($lesCours as $cours){
+                    $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
+                }
+            }catch(Exception $ex){
+                $_SESSION["message"] = "Erreur de saisie.";
             }
                 
             include("View/employe/cListeCours.php");

@@ -1,5 +1,4 @@
 <?php
-    //Afficher l'entête (uniquement dans index.php)
     include("View/header.php");
     //Connexion à la base de données (uniquement dans index.php)
     include("Model/monPdo.php");

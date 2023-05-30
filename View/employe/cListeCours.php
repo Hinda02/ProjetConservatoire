@@ -5,6 +5,23 @@
 
 
 <div class="sm:ml-40">
+
+<?php
+
+if(!empty($_SESSION['message']))
+    {
+      ?>
+        <div class="m-2 bg-red-200 font-semibold flex justify-center alert alert-success" role="alert" data-auto-dismiss="2000">
+            <?php echo($_SESSION["message"]); 
+                  unset($_SESSION["message"]); 	
+            ?>
+        </div>
+
+      <?php
+    }
+
+?>
+
     <div class="flex items-center justify-between p-4 bg-white">
         <div></div>
 

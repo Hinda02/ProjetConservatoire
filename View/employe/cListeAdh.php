@@ -4,6 +4,23 @@
 ?>
 
 <div class="sm:ml-40">
+
+<?php
+
+if(!empty($_SESSION['message']))
+    {
+      ?>
+        <div class="m-2 bg-red-200 font-semibold flex justify-center alert alert-success" role="alert" data-auto-dismiss="2000">
+            <?php echo($_SESSION["message"]); 
+                  unset($_SESSION["message"]); 	
+            ?>
+        </div>
+
+      <?php
+    }
+
+?>
+
     <div class="flex items-center justify-between p-4 bg-white">
         <div></div>
 
@@ -17,7 +34,7 @@
             </div>
 
                <form action="index.php?uc=cours&action=recherche" method="post">             
-             <input type="text" name="recherche" id="table-search-users" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Rechercher un cours">
+             <input type="text" name="recherche" id="table-search-users" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Rechercher un adhérent">
              <button class="ml-2 shadow bg-orange-400 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-1 px-2 rounded" type="submit">
             Chercher
              </button>  

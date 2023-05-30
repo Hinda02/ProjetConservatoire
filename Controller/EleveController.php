@@ -78,7 +78,11 @@ switch($action){
         case "recherche":
             if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
                 $eleve = $_POST["recherche"];
-                $lesAdherents = Eleve::rechercheEleve($eleve);
+                try{
+                    $lesAdherents = Eleve::rechercheEleve($eleve);
+                }catch(Exception $ex){
+                    $_SESSION["message"] = "Erreur de saisie.";
+                }
                     
                 include("View/employe/cListeAdh.php");
             }else{

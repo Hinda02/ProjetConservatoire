@@ -132,7 +132,8 @@ class Eleve extends Personne
 
         $req = MonPdo::getInstance()->prepare("select * from eleve 
                                                inner join personne on eleve.IDELEVE = personne.ID
-                                               where lower(personne.NOM) like (:eleve)");   
+                                               where lower(personne.NOM) like (:eleve)
+                                               or lower(personne.PRENOM) like (:eleve)");   
                                                
                                                      
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
