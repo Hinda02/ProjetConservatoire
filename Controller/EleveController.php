@@ -5,10 +5,12 @@ $action = $_GET["action"];
 
 switch($action){
     case "liste":
+        
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
-        $lesAdherents = Eleve::getAll();
 
-        include("View/employe/cListeAdh.php");
+            $lesAdherents = Eleve::getAll();
+
+            include("View/employe/cListeAdh.php");
         }else{
             include("View/formAuth.php");
         }
@@ -53,14 +55,21 @@ switch($action){
             $eleve->setMail($_POST["mail"]);
             $eleve->setAdresse($_POST["adresse"]);
             $eleve->setBourse($_POST["bourse"]);
-            
+            try{
             $nb = Eleve::addEleve($eleve);
+
+            }catch(Exception $ex){
+
+                $_SESSION["message"] = "L'adhérent n'a pas pu être ajouté dû à des erreurs de saisie";
+            }finally{
 
             if($nb == 1){
                 $_SESSION["message"] = "L'adhérent a été ajouté";
             }
 
             header('Location: index.php?uc=ajouterAdherent');
+            }
+
         }else{
             include("View/formAuth.php");
         }

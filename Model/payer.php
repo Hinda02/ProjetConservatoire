@@ -113,27 +113,6 @@ class Payer
 		$this->paye = $paye;
 		return $this;
 	}
-    public static function GetByPayer(){
 
-        $req = MonPdo::getInstance()->prepare("select * from payer "); 
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'payer');
-       
-        $req->execute();
-        $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-		 return $lesResultats;
-    }
-	public static function updateJour(){
-
-        $req = MonPdo::getInstance()->prepare("update payer * from jour ");
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'jour');
-        $req->execute();
-        $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-
-    
-
-        return $lesResultats;
-    }
 
 }

@@ -39,17 +39,5 @@ class Trim
 		$this->dateFin = $dateFin;
 		return $this;
 	}
-    public static function AfficherTrim(){
-
-        $req = MonPdo::getInstance()->prepare("select * from trim ");
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'trim');
-       
-        $req->execute();
-        $lesResultats = $req->fetchAll();
-        
-
-    
-
-        return $lesResultats;
-    }
+	
 }

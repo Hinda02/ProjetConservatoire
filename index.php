@@ -22,36 +22,45 @@
         $uc = $_GET["uc"];
     }
     
-    switch($uc){
-        case "authentification":
-            include("View/formAuth.php");
-            break;
+    try {
+        switch($uc){
+            case "authentification":
+                include("View/formAuth.php");
+                break;
+        
+            case "cours":
+                include("Controller/SeanceController.php");
+                break;
+        
+            case "employe":
+                include("Controller/EmployeController.php");
+                break;
     
-        case "cours":
-            include("Controller/SeanceController.php");
-            break;
+            case "eleve":
+                include("Controller/EleveController.php");
+                break;
     
-        case "employe":
-            include("Controller/EmployeController.php");
-            break;
-
-        case "eleve":
-            include("Controller/EleveController.php");
-            break;
-
-        case "prof":
-            include("Controller/ProfController.php");
-            break;
-
-        case "ajouterAdherent":
-            include("View//employe/formAjoutAdh.php");
-            break;
-
-        case "inscriptions":
-            include("Controller/InscriptionController.php");
-            break;
+            case "prof":
+                include("Controller/ProfController.php");
+                break;
     
+            case "ajouterAdherent":
+                include("View//employe/formAjoutAdh.php");
+                break;
+    
+            case "inscriptions":
+                include("Controller/InscriptionController.php");
+                break;
+        
+        }
     }
+     catch (AffichageException $ex) {
+        echo "Erreur: " . $ex->errorMessage();
+    }
+     catch (Exception $ex) {
+        echo "Erreur: " . $ex->getMessage();
+    }
+    
 
     include("View/footer.php");
 ?>
