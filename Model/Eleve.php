@@ -126,6 +126,35 @@ class Eleve extends Personne
         return $leResultat->ID;
     }
 
+    public static function rechercheEleve($eleve) {
+
+		$eleve = "%" . $eleve . "%";
+
+        $req = MonPdo::getInstance()->prepare("select * from eleve 
+                                               inner join personne on eleve.IDELEVE = personne.ID
+                                               where lower(personne.NOM) like (:eleve)");   
+                                               
+                                                     
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+        $req->bindParam('eleve', $eleve, PDO::PARAM_STR);
+        $req->execute();
+        $lesResultats = $req->fetchAll();
+		return $lesResultats;
+        
+    }
+
+    public static function getById($id){
+
+        $req = MonPdo::getInstance()->prepare("select * from personne inner join eleve on personne.ID = eleve.IDELEVE where IDELEVE = :id ;");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+        $req->bindParam('id', $id);
+        $req->execute();
+        $leResultat = $req->fetch();
+        return $leResultat;
+    }
+
+
+
 	
 }
 ?>
