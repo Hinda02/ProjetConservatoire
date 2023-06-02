@@ -68,26 +68,15 @@ class Inscription
 	/**
 	 * @param mixed $dateInscription 
 	 * @return self
-	 */	
-	/**
-	 * setDateInscription
-	 *
-	 * @param  mixed $dateInscription
-	 * @return self
 	 */
 	public function setDateInscription($dateInscription): self {
 		$this->dateInscription = $dateInscription;
 		return $this;
 	}
-    
-    /**
-     * Fonction qui récupere la liste des inscrits
-     * Affichage de tous les inscrits 
-     * @return void
-     */
+
     public static function getAll(){
 
-        $req = MonPdo::getInstance()->prepare("select * from inscription "); 
+        $req = MonPdo::getInstance()->prepare("select * from inscription "); //select IDPROF/IDELEVE from inscription 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'inscription');
        
         $req->execute();
@@ -96,13 +85,7 @@ class Inscription
 
         return $lesResultats;
     }
-	
-	/**
-	 * Fonction permettant de récuperer la séance d'un professeur
-	 *
-	 * @param  mixed $seance
-	 * @return void
-	 */
+
 	public static function getBySeance(Seance $seance){
 
 		$idProf = $seance->IDPROF;
@@ -119,13 +102,7 @@ class Inscription
 
         return $lesResultats;
     }
-	
-	/**
-	 * Récuperation d'un élève à partir de son id 
-	 *
-	 * @param  mixed $ideleve
-	 * @return void
-	 */
+
 	public static function getByEleve($ideleve){
 
         $req = MonPdo::getInstance()->prepare("select * from inscription where IDELEVE = :ideleve;");
@@ -139,16 +116,7 @@ class Inscription
 
         return $lesResultats;
     }
-	
-	/**
-	 * Fonction permettant d'inscrire un adherent à cours d'un professeur 
-	 * La fonction gère la capacité des inscrits à une séance en fonction du quota autorisé
-	 * Création d'une fiche de paie pour les trois trimestres d'une inscription donnée
-	 * @param  mixed $idprof
-	 * @param  mixed $ideleve
-	 * @param  mixed $numseance
-	 * @return void
-	 */
+
 	public static function inscrire($idprof, $ideleve, $numseance) {
 
 		$date = date("Y-m-d");
@@ -167,15 +135,7 @@ class Inscription
         $nb = $req->execute();
         return $nb;
     }
-	
-	/**
-	 * Fonction permettant la suppression d'une séance 
-	 * La fonction gère la capacité du quota autorisé
-	 * @param  mixed $idprof
-	 * @param  mixed $ideleve
-	 * @param  mixed $numseance
-	 * @return void
-	 */
+
 	public static function delete($idprof, $ideleve, $numseance) {
 
 		$req = MonPdo::getInstance()->prepare("delete from inscription where IDPROF = :idprof and IDELEVE = :ideleve and NUMSEANCE = :numseance;

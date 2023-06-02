@@ -20,13 +20,6 @@
     }else{
         $uc = $_GET["uc"];
     }
-<<<<<<< HEAD
-    // bla bla 
-    switch($uc){
-        case "authentification":
-            include("View/formAuth.php");
-            break;
-=======
     
     try {
         switch($uc){
@@ -41,7 +34,6 @@
             case "employe":
                 include("Controller/EmployeController.php");
                 break;
->>>>>>> a3b124687cc02d97fc6396b60ce6464abe7b89eb
     
             case "eleve":
                 include("Controller/EleveController.php");

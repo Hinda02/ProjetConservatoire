@@ -4,9 +4,6 @@ $action = $_GET["action"];
 
 
 switch($action){
-
-    // Traitement de la liste des cours 
-    // Utilisation des fonctions getAll et getById
     case "liste":
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
             $lesCours = Seance::getAll();
@@ -20,8 +17,7 @@ switch($action){
             include("View/formAuth.php");
         }
         break;
-    
-    // Traitement de l'affichage de la liste des profs
+
     case "listeP":
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "prof"){
             $lesCours = Seance::getByIdProf($_SESSION["idProf"]);
@@ -37,7 +33,6 @@ switch($action){
         }
         break;
 
-    // traitement de la liste des inscripts à un cours donné 
     case "inscription":
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
             $ideleve = $_GET["ideleve"];
@@ -53,7 +48,6 @@ switch($action){
         }
         break;
 
-    // Traitement de recherche d'un séance avec le noms de l'instrument
     case "recherche":
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
             $instrument = $_POST["recherche"];
@@ -73,26 +67,6 @@ switch($action){
             include("View/formAuth.php");
         }
         break;
-
-
-        case "rechercheadh":
-            if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
-                $instrument = $_POST["rechercheadh"];
-                $lesCours = Seance::rechercheSeance($instrument);
-    
-                foreach($lesCours as $cours){
-                    $lesProfs[$cours->IDPROF] = Prof::getById($cours->IDPROF);
-                }
-                    
-                include("View/employe/cListeCours.php");
-            }else{
-                include("View/formAuth.php");
-            }
-            break;
-
-            
-
-    
 
 }
 ?>

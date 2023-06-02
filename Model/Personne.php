@@ -107,15 +107,10 @@ class Personne
 		$this->adresse = $adresse;
 		return $this;
 	}
-	
-	/**
-	 * Fonction permettant la récuperation de toutes les personnes 
-	 *
-	 * @return void
-	 */
+
 	public static function getAll(){
 
-        $req = MonPdo::getInstance()->prepare("select * from personne;"); 
+        $req = MonPdo::getInstance()->prepare("select * from personne;"); // select ID from personne 
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'personne');
        
         $req->execute();
@@ -123,13 +118,7 @@ class Personne
 
         return $lesResultats;
     }
-	
-	/**
-	 * Fonction qui récupere un personne donné via son id 
-	 *
-	 * @param  mixed $id
-	 * @return void
-	 */
+
 	public static function getById($id){
 
         $req = MonPdo::getInstance()->prepare("select * from personne where id = :id");
@@ -139,13 +128,7 @@ class Personne
         $leResultat = $req->fetch();
         return $leResultat;
     }
-	
-	/**
-	 * Fonction qui permet d'ajouter une personne
-	 *
-	 * @param  mixed $personne
-	 * @return void
-	 */
+
 	public static function addPersonne(Personne $personne){
 		$nom = $personne->getNom();
         $prenom = $personne->getPrenom();

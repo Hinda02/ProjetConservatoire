@@ -57,14 +57,17 @@ class Prof extends Personne
 		return $this;
 	}
 
-    
-	
-	/**
-	 * Fonction permettant la récuperation d'un professeur via son id 
-	 *
-	 * @param  mixed $id
-	 * @return void
-	 */
+    public static function getAll(){
+
+        $req = MonPdo::getInstance()->prepare("select * from personne inner join prof on personne.ID = prof.IDPROF ;");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prof');
+       
+        $req->execute();
+        $lesResultats = $req->fetchAll();
+
+        return $lesResultats;
+    }
+
 	public static function getById($id){
 
         $req = MonPdo::getInstance()->prepare("select * from personne inner join prof on personne.ID = prof.IDPROF where IDPROF = :id ;");
@@ -74,13 +77,7 @@ class Prof extends Personne
         $leResultat = $req->fetch();
         return $leResultat;
     }
-	
-	/**
-	 * Fonction qui permet de récuperer les mails
-	 *
-	 * @param  mixed $mail
-	 * @return void
-	 */
+
 	public static function getIdPers($mail){
 
         $req = MonPdo::getInstance()->prepare("select * from personne where MAIL = :mail ;");
@@ -90,14 +87,7 @@ class Prof extends Personne
         $leResultat = $req->fetch();
         return $leResultat[0];
     }
-	
-	/**
-	 * 
-	 *Fonction qui vérifie le mots de passe d'un professeur
-	 * @param  mixed $login
-	 * @param  mixed $mdp
-	 * @return void
-	 */
+
 	public static function verifMdp($login, $mdp){
 
         $req = MonPdo::getInstance()->prepare("select * from prof where login = :login and mdp = :mdp");
@@ -110,21 +100,11 @@ class Prof extends Personne
 
     }
 
-	
-	
-	/** 
-	 *Fonction qui permet à l'utilisateur de se déconnecter
-	 *
-	 * @return void
-	 */
 	public static function deconnexion(){
         unset($_SESSION['user']);
 		unset($_SESSION['autorisation']);
         header("Location: index.php");
     }
-
-
-	
 	
 }
 ?>

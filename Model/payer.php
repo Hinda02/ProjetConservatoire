@@ -112,43 +112,7 @@ class Payer
 	public function setPaye($paye): self {
 		$this->paye = $paye;
 		return $this;
-<<<<<<< HEAD
-	}    
-    /**
-     * Fonction qui permet de récuperer le montant à payer 
-     *
-     * @return void
-     */
-    public static function GetByPayer(){
-
-        $req = MonPdo::getInstance()->prepare("select * from payer "); 
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'payer');
-       
-        $req->execute();
-        $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-		 return $lesResultats;
-    }	
-	/**
-	 * 
-	 *
-	 * @return void
-	 */
-	public static function updateJour(){
-
-        $req = MonPdo::getInstance()->prepare("update payer * from jour ");
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'jour');
-        $req->execute();
-        $lesResultats = $req->fetchAll();
-        $nb_lignes = count($lesResultats);
-
-    
-
-        return $lesResultats;
-    }
-=======
 	}
 
->>>>>>> a3b124687cc02d97fc6396b60ce6464abe7b89eb
 
 }
