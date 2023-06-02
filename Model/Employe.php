@@ -94,7 +94,14 @@ class Employe
         $this->pw = $pw;
         return $this;
     }
-
+    
+    /**
+     * Fonction static qui permet de récuperer le login et le mots de passe d'un employe 
+     * 
+     * @param  mixed $login
+     * @param  mixed $pw
+     * @return void
+     */
     public static function verifier($login, $pw){
 
         $req = MonPdo::getInstance()->prepare("select * from employe where login = :login and pw = :pw");
@@ -113,7 +120,12 @@ class Employe
 
         return $rep;
     }
-
+    
+    /**
+     * Fonction permettant à l'utilisateur de se déconnecter 
+     *
+     * @return void
+     */
     public static function deconnexion(){
         unset($_SESSION['user']);
         unset($_SESSION['autorisation']);

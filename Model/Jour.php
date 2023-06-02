@@ -19,7 +19,12 @@ class Jour {
 	public function setTranche($tranche): self {
 		$this->tranche = $tranche;
 		return $this;
-	}
+	}    
+    /**
+     * Fonction qui permet de récupere les jours de la semaine 
+     *
+     * @return void
+     */
     public static function selectJour(){
 
         $req = MonPdo::getInstance()->prepare("select * from jour ");

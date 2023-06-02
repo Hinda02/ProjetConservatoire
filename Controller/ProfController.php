@@ -4,6 +4,7 @@ $action = $_GET["action"];
 
 switch($action){
 
+    // Traitement d'affichage de la liste des séances 
     case "accueil":
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "prof"){
             $_GET["action"] = "listeP";
@@ -13,7 +14,8 @@ switch($action){
         }
 
         break;
-
+        
+    // Traitement de login et mdp
     case "verif":
         $login = $_POST["login"];
         $mdp = $_POST["mdp"];
@@ -29,7 +31,8 @@ switch($action){
             include("View/formAuth.php");
         }
         break;
-    
+
+    // Traitement de la déconnection 
     case "deconnexion":
         Prof::deconnexion();
         header("Location: index.php");

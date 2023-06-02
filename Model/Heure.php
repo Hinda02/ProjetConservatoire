@@ -19,7 +19,12 @@ class Heure {
 	public function setTranche($tranche): self {
 		$this->tranche = $tranche;
 		return $this;
-	}
+	}    
+    /**
+     * fonction permettant de récuperer les heures de la semain
+     * 
+     * @return void
+     */
     public static function selectHeure(){
 
         $req = MonPdo::getInstance()->prepare("select * from heure"); 

@@ -40,7 +40,13 @@ class Eleve extends Personne
 		$this->bourse = $bourse;
 		return $this;
 	}
-
+    
+    /**
+     * Fonction qui permet de récuperer et regrouper les informations des élèves 
+     * 
+     *
+     * @return void
+     */
     public static function getAll(){
 
         try {
@@ -56,7 +62,16 @@ class Eleve extends Personne
         
         return $lesResultats;
     }
-
+	
+	/**
+	 * fonction qui permet la recherche des séances,  
+	 * 
+	 * @param  mixed $idprof
+	 * @param  mixed $numseance
+	 * @param  mixed $jour
+	 * @param  mixed $tranche
+	 * @return void
+	 */
 	public static function getNotInSeance($idprof, $numseance, $jour, $tranche){
 
         $lesSeances = Seance::getByJour_Tranche($jour, $tranche);
@@ -92,7 +107,14 @@ class Eleve extends Personne
 
         return $lesResultats;
     }
-
+	
+	/**
+	 * Fonction l'affichage des élèves dans une séance d'un prof donné 
+	 *
+	 * @param  mixed $idprof
+	 * @param  mixed $numseance
+	 * @return void
+	 */
 	public static function getInSeance($idprof, $numseance){
         try {
             $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID
@@ -110,7 +132,13 @@ class Eleve extends Personne
 
         return $lesResultats;
     }
-   
+       
+    /**
+     * Fonction permettant d'ajouter un élève 
+     *
+     * @param  mixed $eleve
+     * @return void
+     */
     public static function addEleve(Eleve $eleve) {
 		parent::addPersonne($eleve);
 		$email = $eleve->getMail();
@@ -129,7 +157,13 @@ class Eleve extends Personne
         }
         return $nb;
     }
-
+	
+	/**
+	 * Fonction permet de recupérer les emails des personnes 
+	 *
+	 * @param  mixed $mail
+	 * @return void
+	 */
 	public static function getIdPers($mail){
 
         try {
@@ -144,7 +178,13 @@ class Eleve extends Personne
         
         return $leResultat->ID;
     }
-
+    
+    /**
+     * Fonction permettant de chercher un élève avec son nom 
+     *
+     * @param  mixed $eleve
+     * @return void
+     */
     public static function rechercheEleve($eleve) {
 
 		$eleve = "%" . $eleve . "%";
@@ -161,7 +201,13 @@ class Eleve extends Personne
 		return $lesResultats;
         
     }
-
+    
+    /**
+     * fonction permettant de récuperer les élèves
+     * 
+     * @param  mixed $id
+     * @return void
+     */
     public static function getById($id){
 
         $req = MonPdo::getInstance()->prepare("select * from personne inner join eleve on personne.ID = eleve.IDELEVE where IDELEVE = :id ;");
@@ -171,6 +217,10 @@ class Eleve extends Personne
         $leResultat = $req->fetch();
         return $leResultat;
     }
+    
+    
+    
+
 
 
 

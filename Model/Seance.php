@@ -110,7 +110,7 @@ class Seance
 
 
     /**
-     * Summary of getAll
+     * Fonction permettant de récuperer une séance
      * @return array
      */
     public static function getAll(){
@@ -133,7 +133,13 @@ class Seance
 
         return $leResultat;
     }
-
+	
+	/**
+	 * Fonction qui permet de recuperer une séance d'un professeur donné
+	 *
+	 * @param  mixed $idprof
+	 * @return void
+	 */
 	public static function getByIdProf($idprof){
         $req = MonPdo::getInstance()->prepare("select * from seance where IDPROF = :idprof;");
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'seance');
@@ -145,7 +151,14 @@ class Seance
 
         return $lesResultats;
     }
-
+	
+	/**
+	 * Fonction qui permet de récuperer une séance avec le jour ainsi que la tranche horraire
+	 *
+	 * @param  mixed $jour
+	 * @param  mixed $tranche
+	 * @return void
+	 */
 	public static function getByJour_Tranche($jour, $tranche){
         $req = MonPdo::getInstance()->prepare("select * from seance where JOUR = :jour and TRANCHE = :tranche;");
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'seance');
@@ -158,7 +171,12 @@ class Seance
 
         return $lesResultats;
     }
-
+	
+	/**
+	 * Fonction permettant de chercher une séance d'un professeur par instrument
+	 * @param  mixed $instrument
+	 * @return void
+	 */
 	public static function rechercheSeance($instrument) {
 
 		$instrument = "%" . $instrument . "%";
@@ -175,6 +193,8 @@ class Seance
 		return $lesResultats;
         
     }
+	
+
 
 	
 

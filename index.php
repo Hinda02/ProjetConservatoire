@@ -21,7 +21,7 @@
     }else{
         $uc = $_GET["uc"];
     }
-    
+    // bla bla 
     switch($uc){
         case "authentification":
             include("View/formAuth.php");

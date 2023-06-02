@@ -17,12 +17,17 @@ private function __construct()
     MonPdo::$unPdo->query("SET CHARACTER SET utf8");
     MonPdo::$unPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
+/**
+ * __destruct
+ *
+ * @return void
+ */
 public function __destruct()
 { 
     MonPdo::$unPdo = null;
 }
 /**
-*	Fonction statique qui cree l'unique instance de la classe
+* Fonction statique qui creé l'unique instance de la classe
 * Appel : $instanceMonPdo = MonPdo::getMonPdo();
 * l'unique objet de la classe MonPdo
 */

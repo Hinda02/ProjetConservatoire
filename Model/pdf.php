@@ -1,7 +1,12 @@
 <?php
 
 class PDF extends FPDF
-{
+{    
+    /**
+     * Fonction permettant de definir les caractéres et polices de l'écriture  
+     *
+     * @return void
+     */
     function Header()
     {
         // Logo
@@ -20,7 +25,11 @@ class PDF extends FPDF
         $this->Ln(20);
 
     }
-
+    
+    /**
+     * Fonction permettant de definir les caractéres et polices de l'écriture
+     * @return void
+     */
     function Footer()
     {
         // Positionnement à 1,5 cm du bas

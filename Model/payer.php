@@ -112,7 +112,12 @@ class Payer
 	public function setPaye($paye): self {
 		$this->paye = $paye;
 		return $this;
-	}
+	}    
+    /**
+     * Fonction qui permet de récuperer le montant à payer 
+     *
+     * @return void
+     */
     public static function GetByPayer(){
 
         $req = MonPdo::getInstance()->prepare("select * from payer "); 
@@ -122,7 +127,12 @@ class Payer
         $lesResultats = $req->fetchAll();
         $nb_lignes = count($lesResultats);
 		 return $lesResultats;
-    }
+    }	
+	/**
+	 * 
+	 *
+	 * @return void
+	 */
 	public static function updateJour(){
 
         $req = MonPdo::getInstance()->prepare("update payer * from jour ");

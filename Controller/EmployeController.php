@@ -3,6 +3,8 @@
 $action = $_GET["action"];
 
 switch($action){
+
+    // Traitement pour afficher la liste des séances 
     case "accueil":
         if(isset($_SESSION["autorisation"]) && $_SESSION["autorisation"] == "emp"){
             $_GET["action"] = "liste";
@@ -12,7 +14,8 @@ switch($action){
         }
         
         break;
-
+        
+    // Vérification du login et Mdp
     case "verif":
         $login = $_POST["login"];
         $mdp = $_POST["mdp"];
@@ -27,6 +30,7 @@ switch($action){
         }
         break;
 
+    // Déconnection de l'employé   
     case "deconnexion":
         Employe::deconnexion();
         header("Location: index.php");

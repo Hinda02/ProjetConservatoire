@@ -38,7 +38,12 @@ class Trim
 	public function setDateFin($dateFin): self {
 		$this->dateFin = $dateFin;
 		return $this;
-	}
+	}    
+    /**
+     * AfficherTrim
+     *
+     * @return void
+     */
     public static function AfficherTrim(){
 
         $req = MonPdo::getInstance()->prepare("select * from trim ");
