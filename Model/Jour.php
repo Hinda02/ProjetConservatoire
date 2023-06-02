@@ -19,6 +19,7 @@ class Jour {
 	public function setTranche($tranche): self {
 		$this->tranche = $tranche;
 		return $this;
+<<<<<<< HEAD
 	}    
     /**
      * Fonction qui permet de récupere les jours de la semaine 
@@ -38,5 +39,8 @@ class Jour {
         return $lesResultats;
     }
 
+=======
+	}
+>>>>>>> a3b124687cc02d97fc6396b60ce6464abe7b89eb
 	
 }

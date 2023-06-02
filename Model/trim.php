@@ -38,6 +38,7 @@ class Trim
 	public function setDateFin($dateFin): self {
 		$this->dateFin = $dateFin;
 		return $this;
+<<<<<<< HEAD
 	}    
     /**
      * AfficherTrim
@@ -57,4 +58,8 @@ class Trim
 
         return $lesResultats;
     }
+=======
+	}
+	
+>>>>>>> a3b124687cc02d97fc6396b60ce6464abe7b89eb
 }

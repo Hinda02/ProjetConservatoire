@@ -49,16 +49,13 @@ class Eleve extends Personne
      */
     public static function getAll(){
 
-        try {
-            $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID order by nom asc;");  
-            $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
-        
-            $req->execute();
-            $lesResultats = $req->fetchAll();
+    
+        $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID order by nom asc;");  
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+    
+        $req->execute();
+        $lesResultats = $req->fetchAll();
 
-        } catch (Throwable $th) {
-            throw $th;
-        }   
         
         return $lesResultats;
     }
@@ -89,21 +86,16 @@ class Eleve extends Personne
         }
         $string = $string . "-1";
 
-        try {
-            $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID
-            where eleve.IDELEVE not in( select ideleve from inscription where idprof = :idProf and numseance = :numSeance)
-            AND eleve.IDELEVE not in( ". $string .");");  
-            $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
-            $req->bindParam('idProf', $idprof);
-            $req->bindParam('numSeance', $numseance);
-            $req->execute();
 
-            $lesResultats = $req->fetchAll();
+        $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID
+        where eleve.IDELEVE not in( select ideleve from inscription where idprof = :idProf and numseance = :numSeance)
+        AND eleve.IDELEVE not in( ". $string .");");  
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+        $req->bindParam('idProf', $idprof);
+        $req->bindParam('numSeance', $numseance);
+        $req->execute();
 
-        } catch (Throwable $th) {
-            throw $th;
-        }
-        
+        $lesResultats = $req->fetchAll();
 
         return $lesResultats;
     }
@@ -116,19 +108,15 @@ class Eleve extends Personne
 	 * @return void
 	 */
 	public static function getInSeance($idprof, $numseance){
-        try {
-            $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID
-            where eleve.IDELEVE in( select ideleve from inscription where idprof = :idProf and numseance = :numSeance);");  
-            $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
-            $req->bindParam('idProf', $idprof);
-            $req->bindParam('numSeance', $numseance);
-        
-            $req->execute();
-            $lesResultats = $req->fetchAll();
-        } catch (Throwable $th) {
-            throw $th;
-        }
-        
+
+        $req = MonPdo::getInstance()->prepare("select * from eleve inner join personne on eleve.IDELEVE = personne.ID
+        where eleve.IDELEVE in( select ideleve from inscription where idprof = :idProf and numseance = :numSeance);");  
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');
+        $req->bindParam('idProf', $idprof);
+        $req->bindParam('numSeance', $numseance);
+    
+        $req->execute();
+        $lesResultats = $req->fetchAll();
 
         return $lesResultats;
     }
@@ -144,17 +132,14 @@ class Eleve extends Personne
 		$email = $eleve->getMail();
 		$id = self::getIdPers($email);
 
-		try {
-            $req = MonPdo::getInstance()->prepare("insert into eleve(idEleve, bourse) values(:idEleve, :bourse)");
-            $bourse = $eleve->getBourse();
-            
-            $req->bindParam('idEleve', $id);
-            $req->bindParam('bourse', $bourse);
-            
-            $nb = $req->execute();
-        } catch (Throwable $th) {
-            throw $th;
-        }
+        $req = MonPdo::getInstance()->prepare("insert into eleve(idEleve, bourse) values(:idEleve, :bourse)");
+        $bourse = $eleve->getBourse();
+        
+        $req->bindParam('idEleve', $id);
+        $req->bindParam('bourse', $bourse);
+        
+        $nb = $req->execute();
+
         return $nb;
     }
 	
@@ -166,16 +151,12 @@ class Eleve extends Personne
 	 */
 	public static function getIdPers($mail){
 
-        try {
-            $req = MonPdo::getInstance()->prepare("select * from personne where MAIL = :mail ;");
-            $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'personne');
-            $req->bindParam('mail', $mail);
-            $req->execute();
-            $leResultat = $req->fetch();
-        } catch (Throwable $th) {
-            throw $th;
-        }
-        
+        $req = MonPdo::getInstance()->prepare("select * from personne where MAIL = :mail ;");
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'personne');
+        $req->bindParam('mail', $mail);
+        $req->execute();
+        $leResultat = $req->fetch();
+    
         return $leResultat->ID;
     }
     
@@ -191,7 +172,8 @@ class Eleve extends Personne
 
         $req = MonPdo::getInstance()->prepare("select * from eleve 
                                                inner join personne on eleve.IDELEVE = personne.ID
-                                               where lower(personne.NOM) like (:eleve)");   
+                                               where lower(personne.NOM) like (:eleve)
+                                               or lower(personne.PRENOM) like (:eleve)");   
                                                
                                                      
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'eleve');

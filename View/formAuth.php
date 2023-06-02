@@ -1,4 +1,21 @@
 <section style="background-image: url('Images/music.png');" class="bg-cover bg-gray-50">
+
+<?php
+
+if(!empty($_SESSION['message']))
+    {
+      ?>
+        <div class="m-2 bg-red-200 font-semibold flex justify-center alert alert-success" role="alert" data-auto-dismiss="2000">
+            <?php echo($_SESSION["message"]); 
+                  unset($_SESSION["message"]); 	
+            ?>
+        </div>
+
+      <?php
+    }
+
+?>
+
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v12"/></svg>

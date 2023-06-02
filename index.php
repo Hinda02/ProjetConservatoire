@@ -1,5 +1,4 @@
 <?php
-    //Afficher l'entête (uniquement dans index.php)
     include("View/header.php");
     //Connexion à la base de données (uniquement dans index.php)
     include("Model/monPdo.php");
@@ -21,37 +20,51 @@
     }else{
         $uc = $_GET["uc"];
     }
+<<<<<<< HEAD
     // bla bla 
     switch($uc){
         case "authentification":
             include("View/formAuth.php");
             break;
+=======
     
-        case "cours":
-            include("Controller/SeanceController.php");
-            break;
+    try {
+        switch($uc){
+            case "authentification":
+                include("View/formAuth.php");
+                break;
+        
+            case "cours":
+                include("Controller/SeanceController.php");
+                break;
+        
+            case "employe":
+                include("Controller/EmployeController.php");
+                break;
+>>>>>>> a3b124687cc02d97fc6396b60ce6464abe7b89eb
     
-        case "employe":
-            include("Controller/EmployeController.php");
-            break;
-
-        case "eleve":
-            include("Controller/EleveController.php");
-            break;
-
-        case "prof":
-            include("Controller/ProfController.php");
-            break;
-
-        case "ajouterAdherent":
-            include("View//employe/formAjoutAdh.php");
-            break;
-
-        case "inscriptions":
-            include("Controller/InscriptionController.php");
-            break;
+            case "eleve":
+                include("Controller/EleveController.php");
+                break;
     
+            case "prof":
+                include("Controller/ProfController.php");
+                break;
+    
+            case "ajouterAdherent":
+                include("View//employe/formAjoutAdh.php");
+                break;
+    
+            case "inscriptions":
+                include("Controller/InscriptionController.php");
+                break;
+        
+        }
     }
+     catch (Exception $ex) {
+        echo "Erreur: " . $ex->getMessage();
+    }
+    
 
     include("View/footer.php");
 ?>

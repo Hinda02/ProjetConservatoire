@@ -112,6 +112,7 @@ class Payer
 	public function setPaye($paye): self {
 		$this->paye = $paye;
 		return $this;
+<<<<<<< HEAD
 	}    
     /**
      * Fonction qui permet de récuperer le montant à payer 
@@ -145,5 +146,9 @@ class Payer
 
         return $lesResultats;
     }
+=======
+	}
+
+>>>>>>> a3b124687cc02d97fc6396b60ce6464abe7b89eb
 
 }
