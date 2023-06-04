@@ -11,7 +11,7 @@ Installer une plateforme de developpement web locale tel que (WAMP pour Windows)
 
 Sur votre application Web d'administration pour les systèmes de gestion de base de données MySQL et MariaDB incluse dans le package XAMP (WAMP, LAMP, MAMP),
 
-souvent étant phpmyadmin, importer la base de donnée consernée par l'application et se trouvant dans le script (dbconservatoire.sql).
+souvent étant phpmyadmin, créer une bdd vide appelée 'conservatoire' puis, importer la base de donnée consernée par l'application et se trouvant dans le script (dbconservatoire.sql).
 
 L'utilisateur restera 'root' et sans mot de passe pour faciliter votre accès à l'application.
 
