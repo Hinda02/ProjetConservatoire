@@ -3,7 +3,7 @@
     include("View/navbarprof.php");
 ?>
 <div class="sm:ml-40">
-    <div class="flex items-center justify-between p-4 bg-indigo-200">
+    <!--<div class="flex items-center justify-between p-4 bg-indigo-200">
         <div></div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative">
@@ -12,7 +12,7 @@
             </div>
             <input type="text" id="table-search-users" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-indigo-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rechercher un cours">
         </div>
-    </div>
+    </div>-->
     <table class="w-full text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
             <tr>

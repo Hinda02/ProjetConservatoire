@@ -14,12 +14,7 @@
 					</svg>
 					<span class="ml-2 text-sm font-medium">Accueil</span>
 				</a>
-				<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300" href="#">
-					<svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-					</svg>
-					<span class="ml-2 text-sm font-medium">Rechercher</span>
-				</a>
+			
 				<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300" href="index.php?uc=eleve&action=liste">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
